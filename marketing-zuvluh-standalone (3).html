@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Маркетинг Зөвлөх — сошиал борлуулалтын төлөвлөлт</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EFF6F1; --surface:#FFFFFF; --surface-2:#E6F4EA; --ink:#0E2A17; --ink-2:#496054; --line:#D0E3D6;
+  --navy:#127A35; --navy-2:#0E6A2C; --on-navy:#FFFFFF; --on-navy-2:#CDEBD6; --navy-line:rgba(255,255,255,.22);
+  --hero-a:#1E9D48; --hero-b:#0E6C2D;
+  --accent:#137A38; --accent-bg:#E6F4EA; --brass:#A6EA52;
+  --focus:#1F5FBF; --danger:#9B2C2C; --danger-bg:#F8E7E5;
+  --c1:#0E6C2D; --c2:#2FA455; --c3:#84CF95; --c4:#A6EA52;
+  --btn:#158A3B; --btn-hover:#0F7430; --rule:#158A3B; --chipon:#158A3B; --chipon-line:#158A3B;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#08150D; --surface:#0F2416; --surface-2:#153320; --ink:#E6F3EA; --ink-2:#9FB8A8; --line:#24402E;
+    --navy:#0B3D1C; --navy-2:#0A3117; --hero-a:#0F5A26; --hero-b:#082E14;
+    --accent:#9BE05F; --accent-bg:#1E2E14; --focus:#7FB0FF; --danger:#F19A94; --danger-bg:#3A1E1E;
+    --c1:#3FAE64; --c2:#2C8B4D; --c3:#1F6338; --c4:#A6EA52;
+    --btn:#1A9A47; --btn-hover:#22B055; --rule:#A6EA52; --chipon:#1A7F3B; --chipon-line:#A6EA52;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#08150D; --surface:#0F2416; --surface-2:#153320; --ink:#E6F3EA; --ink-2:#9FB8A8; --line:#24402E;
+  --navy:#0B3D1C; --navy-2:#0A3117; --hero-a:#0F5A26; --hero-b:#082E14;
+  --accent:#9BE05F; --accent-bg:#1E2E14; --focus:#7FB0FF; --danger:#F19A94; --danger-bg:#3A1E1E;
+  --c1:#3FAE64; --c2:#2C8B4D; --c3:#1F6338; --c4:#A6EA52;
+  --btn:#1A9A47; --btn-hover:#22B055; --rule:#A6EA52; --chipon:#1A7F3B; --chipon-line:#A6EA52;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.65 "IBM Plex Sans","Noto Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+h1,h2,h3,h4{font-family:"Montserrat","Noto Sans",system-ui,sans-serif;margin:0;font-weight:800;letter-spacing:-.01em}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.muted{color:var(--ink-2)}
+
+/* top bar */
+.topbar{background:var(--hero-a);color:var(--on-navy);border-bottom:1px solid var(--navy-line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{flex:none}
+.brand b{font:700 1.08rem "Montserrat","Noto Sans",system-ui,sans-serif}
+.brand small{display:block;font-size:.74rem;color:var(--on-navy-2);line-height:1.2}
+.nav{display:flex;align-items:center;gap:22px;font-size:.92rem}
+.nav a{text-decoration:none;color:var(--on-navy-2);padding:6px 0;border-bottom:1px solid transparent}
+.nav a:hover{color:var(--on-navy);border-color:var(--brass)}
+.themebtn{background:transparent;border:1px solid var(--navy-line);color:var(--on-navy);border-radius:10px;padding:6px 10px;cursor:pointer;font-size:.85rem}
+.themebtn:hover{border-color:var(--brass)}
+@media (max-width:720px){.nav a{display:none}.brand small{display:none}}
+
+/* hero + intake (question by question) */
+.hero{background:linear-gradient(180deg,var(--hero-a) 0%,var(--hero-b) 100%);padding:28px 0 64px}
+.intake{max-width:780px;margin:0 auto;background:var(--surface);color:var(--ink);border-radius:26px;overflow:hidden;box-shadow:0 26px 50px -24px rgba(0,0,0,.55)}
+.ihead{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 40px 14px}
+.ihead b{font:800 .98rem "Montserrat","Noto Sans",system-ui,sans-serif}
+.ihead span{font-size:.85rem;color:var(--ink-2)}
+.prog{height:6px;background:var(--surface-2)}
+.prog i{display:block;height:100%;width:0;background:var(--btn);border-radius:0 999px 999px 0;transition:width .45s cubic-bezier(.22,.8,.3,1)}
+.stage{position:relative;padding:34px 40px 10px;overflow:hidden}
+.q{position:absolute;top:34px;left:40px;right:40px;min-width:0;visibility:hidden;opacity:0;transform:translateX(60px);
+  transition:opacity .3s ease,transform .42s cubic-bezier(.22,.8,.3,1),visibility 0s .42s}
+.q.past{transform:translateX(-60px)}
+.q.on{position:relative;top:auto;left:auto;right:auto;visibility:visible;opacity:1;transform:none;transition:opacity .35s ease .06s,transform .42s cubic-bezier(.22,.8,.3,1),visibility 0s}
+.qn{margin:0 0 8px;font-size:.85rem;font-weight:600;color:var(--accent)}
+.q h3{font-size:clamp(1.4rem,3.2vw,2rem);line-height:1.22;max-width:20em}
+.qsub{margin:10px 0 0;color:var(--ink-2);font-size:.95rem;max-width:44ch}
+.ans{margin-top:26px}
+.big{min-height:60px!important;font-size:1.15rem;padding:12px 18px!important;border-radius:14px!important}
+.ans .field{margin-bottom:14px}
+.affix .big{padding-right:46px!important}
+.ifoot{display:flex;align-items:center;gap:10px;padding:14px 40px 28px}
+.ifoot .sp{margin-right:auto}
+.ierr{padding:0 40px}
+.ierr .errmsg{margin:6px 0 0}
+.sum{margin:20px 0 0;padding:0;display:grid}
+.sum div{display:grid;grid-template-columns:150px 1fr auto;gap:4px 16px;padding:10px 0;border-top:1px solid var(--line);align-items:baseline}
+.sum dt{font-size:.82rem;color:var(--ink-2)}
+.sum dd{margin:0;font-weight:500;overflow-wrap:anywhere}
+@media (max-width:640px){.q{left:22px;right:22px}.ihead,.stage,.ifoot,.ierr{padding-left:22px;padding-right:22px}.sum div{grid-template-columns:1fr auto}.sum dt{grid-column:1/-1}}
+.grid2{display:grid;gap:14px;grid-template-columns:1fr}
+@media (min-width:560px){.grid2{grid-template-columns:1fr 1fr}}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:18px;min-width:0}
+.field label,.field .lbl{font-size:.86rem;font-weight:600;color:var(--ink)}
+.field .hint{font-size:.78rem;color:var(--ink-2)}
+input[type=text],input[type=number],select,textarea{width:100%;min-height:44px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink)}
+input[type=text]:hover,input[type=number]:hover,textarea:hover{border-color:var(--ink-2)}
+textarea{min-height:96px;resize:vertical}
+input::placeholder,textarea::placeholder{color:#66758A}
+.affix{position:relative}
+.affix input{padding-right:44px}
+.affix i{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-style:normal;color:var(--ink-2);font-size:.9rem;pointer-events:none}
+.opts{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.opts.compact{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
+.opt{position:relative;display:block}
+.opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer;margin:0;z-index:1}
+.opt span{position:relative;display:block;height:100%;border:1px solid var(--line);border-radius:14px;padding:11px 34px 11px 14px;background:var(--surface)}
+.opt:hover span{border-color:var(--ink-2)}
+.opt b{display:block;font-weight:600;font-size:.92rem;line-height:1.35}
+.opt small{display:block;color:var(--ink-2);font-size:.78rem;margin-top:2px;line-height:1.35}
+.opt input:checked + span{border-color:var(--rule);box-shadow:inset 0 0 0 1px var(--rule);background:var(--surface-2)}
+.opt input:checked + span::after{content:"";position:absolute;top:13px;right:13px;width:9px;height:9px;border-radius:50%;background:var(--rule)}
+.opt input:focus-visible + span{outline:2px solid var(--focus);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer;margin:0}
+.chip span{display:inline-block;padding:8px 16px;border:1px solid var(--line);border-radius:999px;font-size:.9rem;background:var(--surface);cursor:pointer}
+.chip:hover span{border-color:var(--ink-2)}
+.chip input:checked + span{background:var(--chipon);border-color:var(--chipon-line);color:#F1F4F9}
+.chip input:focus-visible + span{outline:2px solid var(--focus);outline-offset:2px}
+.quick{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.quick button{background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:.8rem;cursor:pointer;color:var(--ink-2)}
+.quick button:hover{border-color:var(--brass);color:var(--ink)}
+.navrow{display:flex;gap:10px;align-items:center;justify-content:flex-end;margin-top:auto;padding-top:18px;border-top:1px solid var(--line)}
+.navrow .sp{margin-right:auto}
+.actions-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 24px;border-radius:14px;border:1px solid var(--btn);background:var(--btn);color:#F1F4F9;font-weight:600;cursor:pointer;text-decoration:none}
+.btn:hover{background:var(--btn-hover);border-color:var(--btn-hover)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink-2)}
+.btn.ghost:hover{background:var(--surface-2)}
+.btn.gold{background:var(--brass);border-color:var(--brass);color:#0E2A17}
+.btn.gold:hover{filter:brightness(1.06)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.errmsg{color:var(--danger);font-size:.88rem;margin:0 0 10px}
+
+/* empty state */
+.empty{margin:48px auto;max-width:760px;border:1px dashed var(--ink-2);border-radius:18px;padding:34px 30px;background:var(--surface)}
+.empty h2{font-size:1.25rem;margin-bottom:8px}
+.empty p{margin:0;color:var(--ink-2)}
+
+/* document */
+.docwrap{padding:48px 0 24px}
+.doc-grid{display:grid;gap:40px;grid-template-columns:1fr}
+@media (min-width:1000px){.doc-grid{grid-template-columns:210px minmax(0,1fr)}}
+.toc{position:sticky;top:20px;align-self:start;font-size:.9rem}
+.toc b{display:block;font:700 .95rem "Montserrat","Noto Sans",system-ui,sans-serif;margin-bottom:10px}
+.toc ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--line)}
+.toc a{display:block;padding:6px 0 6px 14px;text-decoration:none;color:var(--ink-2);margin-left:-1px;border-left:2px solid transparent}
+.toc a:hover{color:var(--ink);border-left-color:var(--brass)}
+@media (max-width:999px){.toc{position:static}.toc ol{display:flex;flex-wrap:wrap;gap:4px 16px;border:0}.toc a{padding:4px 0;border:0;margin:0}}
+.doc{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.dochead{padding:32px 36px 26px;border-bottom:1px solid var(--line);border-left:5px solid var(--rule)}
+.docref{font-size:.82rem;color:var(--ink-2);margin-bottom:10px}
+.dochead h2{font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.2}
+.docsub{margin:6px 0 20px;font:500 1.15rem "Montserrat","Noto Sans",system-ui,sans-serif;color:var(--accent)}
+.meta{display:grid;gap:0 28px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin:0 0 22px}
+.meta div{padding:9px 0;border-top:1px solid var(--line)}
+.meta dt{font-size:.78rem;color:var(--ink-2)}
+.meta dd{margin:0;font-weight:500}
+.docactions{display:flex;flex-wrap:wrap;gap:10px}
+.dsec{padding:30px 36px;border-bottom:1px solid var(--line)}
+.dsec:last-child{border-bottom:0}
+.dsec>h3{font-size:1.4rem;display:flex;gap:12px;align-items:baseline;margin-bottom:16px;scroll-margin-top:16px}
+.sn{color:var(--accent);min-width:1.1em}
+.dsec h4{font-size:1.02rem;margin:22px 0 8px}
+.dsec p{margin:0 0 12px;max-width:72ch}
+.dsec ul,.dsec ol{margin:0 0 12px;padding-left:1.25rem;max-width:72ch}
+.dsec li{margin:4px 0}
+@media (max-width:640px){.dochead,.dsec{padding-left:20px;padding-right:20px}}
+.callout{border:1px solid var(--line);border-left:4px solid var(--brass);background:var(--surface-2);padding:12px 16px;border-radius:10px;margin:0 0 18px;max-width:72ch}
+.callout b{font-weight:600}
+.warn{border-left-color:var(--danger);background:var(--danger-bg)}
+.focus{list-style:none;padding:0!important;margin:0 0 12px}
+.focus li{border-left:3px solid var(--brass);padding:6px 0 6px 16px;margin:12px 0}
+.focus b{display:block;font:700 1.02rem "Montserrat","Noto Sans",system-ui,sans-serif}
+.focus span{color:var(--ink-2);font-size:.94rem}
+.scroll{overflow-x:auto;margin:0 0 14px}
+table.tbl{width:100%;border-collapse:collapse;font-size:.92rem;min-width:560px}
+.tbl th{text-align:left;font-weight:600;padding:9px 12px 9px 0;border-bottom:2px solid var(--rule);white-space:nowrap}
+.tbl td{padding:10px 12px 10px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl td:last-child,.tbl th:last-child{padding-right:0}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:1px 8px;font-size:.78rem;color:var(--ink-2);background:var(--surface);white-space:nowrap}
+.tag.k{border-color:var(--accent);color:var(--accent)}
+.summary-line{display:flex;flex-wrap:wrap;gap:8px 24px;margin:0 0 16px;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.summary-line span{font-size:.92rem;color:var(--ink-2)}
+.summary-line b{color:var(--ink);font-family:"Montserrat","Noto Sans",system-ui,sans-serif;font-size:1.15rem}
+
+/* days */
+details.day{border-bottom:1px solid var(--line)}
+details.day:first-of-type{border-top:1px solid var(--line)}
+details.day>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:130px 1fr 24px;gap:6px 18px;padding:14px 0;align-items:start}
+details.day>summary::-webkit-details-marker{display:none}
+details.day>summary::after{content:"";width:8px;height:8px;border-right:2px solid var(--ink-2);border-bottom:2px solid var(--ink-2);transform:rotate(45deg);margin-top:8px;justify-self:end;transition:transform .18s}
+details.day[open]>summary::after{transform:rotate(-135deg);margin-top:12px}
+.dname{font:700 1.05rem "Montserrat","Noto Sans",system-ui,sans-serif}
+.dname small{display:block;font:400 .78rem "IBM Plex Sans",sans-serif;color:var(--ink-2)}
+.dfmt{font-weight:500}
+.dhook{display:block;font:500 .98rem/1.45 "Montserrat","Noto Sans",system-ui,sans-serif;color:var(--ink-2);margin-top:2px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.dbody{padding:2px 0 20px 148px}
+@media (max-width:640px){details.day>summary{grid-template-columns:1fr 24px}.dname{grid-column:1/2}.dsum{grid-column:1/2}details.day>summary::after{grid-column:2;grid-row:1}.dbody{padding-left:0}}
+.dbody h5{margin:14px 0 6px;font-size:.88rem;font-weight:600}
+.dbody ol{margin:0;padding-left:1.2rem}
+.cap{position:relative;white-space:pre-wrap;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:14px 16px 14px;font-size:.93rem;line-height:1.6}
+.copybtn{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:4px 10px;font-size:.8rem;cursor:pointer;margin-top:8px}
+.copybtn:hover{border-color:var(--accent);color:var(--accent)}
+.toolrow{display:flex;justify-content:flex-end;margin:0 0 8px}
+.linkbtn{background:none;border:0;padding:0;color:var(--accent);text-decoration:underline;cursor:pointer;font-size:.88rem}
+
+/* hooks */
+.dsec .hooks{list-style:none;padding:0;margin:0;max-width:none}
+.hooks li{display:grid;grid-template-columns:130px 1fr auto;gap:8px 18px;padding:14px 0;border-bottom:1px solid var(--line);align-items:start;max-width:none!important}
+.hooks li:first-child{border-top:1px solid var(--line)}
+.hooks q{quotes:none;font:500 1.05rem/1.45 "Montserrat","Noto Sans",system-ui,sans-serif;display:block}
+.hooks small{display:block;color:var(--ink-2);margin-top:3px;font-size:.82rem}
+@media (max-width:640px){.hooks li{grid-template-columns:1fr}}
+
+/* budget */
+.bar{display:flex;height:14px;border-radius:999px;overflow:hidden;margin:6px 0 10px;background:var(--surface-2)}
+.bar i{display:block;height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:.88rem;margin-bottom:18px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;margin-right:7px;border-radius:1px;background:var(--c)}
+.calc{display:grid;gap:0 32px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin:0 0 16px}
+.calc div{padding:10px 0;border-top:1px solid var(--line)}
+.calc dt{font-size:.8rem;color:var(--ink-2)}
+.calc dd{margin:0;font:700 1.35rem "Montserrat","Noto Sans",system-ui,sans-serif}
+.calc small{display:block;font:400 .8rem "IBM Plex Sans",sans-serif;color:var(--ink-2)}
+
+/* weeks */
+.week{display:grid;grid-template-columns:150px 1fr;gap:6px 24px;padding:18px 0;border-top:1px solid var(--line)}
+.week:last-child{border-bottom:1px solid var(--line)}
+.week h4{margin:0!important}
+.week h4 small{display:block;font:400 .82rem "IBM Plex Sans",sans-serif;color:var(--ink-2);margin-top:2px}
+.week ul{margin:0!important}
+@media (max-width:640px){.week{grid-template-columns:1fr}}
+
+/* ask */
+.ask{padding:56px 0 64px}
+.askbox{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:30px 32px;display:grid;gap:32px;grid-template-columns:1fr}
+@media (min-width:1000px){.askbox{grid-template-columns:minmax(0,420px) minmax(0,1fr)}}
+.ask h2{font-size:1.5rem;margin-bottom:8px}
+.ask .qs{display:flex;flex-direction:column;gap:6px;margin:12px 0 0}
+.ask .qs button{text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:8px 0;cursor:pointer;color:var(--ink-2);font-size:.9rem}
+.ask .qs button:hover{color:var(--accent)}
+.answer{min-height:220px;border:1px solid var(--line);border-radius:10px;padding:18px 22px;background:var(--bg)}
+.answer h4{margin:16px 0 6px;font-size:1.02rem}
+.answer h4:first-child{margin-top:0}
+.answer p{margin:0 0 10px}
+.answer ul,.answer ol{margin:0 0 10px;padding-left:1.3rem}
+.answer code{background:var(--surface-2);padding:1px 5px;border-radius:2px;font-size:.9em}
+.footer{background:var(--navy);color:var(--on-navy-2);padding:28px 0;font-size:.85rem}
+.footer .wrap{display:flex;flex-wrap:wrap;gap:8px 32px;justify-content:space-between}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--navy-2);color:var(--on-navy);padding:10px 18px;border-radius:10px;font-size:.9rem;border:1px solid var(--brass);z-index:50}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* paywall / QPay */
+.small{font-size:.82rem}
+.err{color:var(--danger);font-size:.85rem;margin:8px 0 0}
+.premium-area{position:relative}
+.premium-wrap.locked{user-select:none;pointer-events:none}
+/* Гарчгийг (h3) тод үлдээж, доорх агуулгыг л blur хийнэ */
+.premium-wrap.locked .dsec>*{transition:filter .25s ease}
+.premium-wrap.locked .dsec>*:not(h3){filter:blur(7px)}
+.paywall{position:sticky;top:16px;z-index:5;display:flex;justify-content:center;padding:18px 20px 0}
+.paywall-card{max-width:420px;width:100%;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px 26px;text-align:center;box-shadow:0 26px 50px -24px rgba(0,0,0,.45)}
+.paywall-lock{font-size:1.8rem;margin-bottom:6px}
+.paywall-card h4{margin:0 0 8px;font-size:1.15rem}
+.paywall-card p{margin:0 0 16px;color:var(--ink-2);font-size:.92rem}
+.paywall-price{font:700 2rem/1 "Montserrat",system-ui,sans-serif;color:var(--accent);margin:0 0 16px}
+.paywall-card .btn{width:100%}
+.qpay-panel{margin-top:18px;text-align:left}
+.qpay-qr{display:block;width:180px;height:180px;margin:0 auto 10px;border-radius:12px;border:1px solid var(--line);background:#fff;object-fit:contain}
+.qpay-apps{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:10px 0}
+.btn.small{min-height:36px;padding:6px 14px;font-size:.85rem}
+#qpayStatus{text-align:center}
+
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Маркетинг Зөвлөх">
+      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="30" rx="9" fill="#FFFFFF"/><rect x="6" y="16" width="5" height="8" rx="1.5" fill="#127A35"/><rect x="13" y="11" width="5" height="13" rx="1.5" fill="#127A35"/><rect x="20" y="6" width="5" height="18" rx="1.5" fill="#127A35"/></svg>
+      <span><b>Маркетинг Зөвлөх</b><small>Сошиал борлуулалтын төлөвлөлтийн төв</small></span>
+    </a>
+    <nav class="nav" aria-label="Үндсэн цэс">
+      <a href="#top">Төлөвлөгөө гаргах</a>
+      <a href="#doc" id="navdoc" hidden>Баримт</a>
+      <button class="themebtn" id="themeBtn" type="button" aria-label="Харагдах байдлыг солих">Харагдах байдал</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <form class="intake" id="intake" novalidate>
+      <div class="ihead"><b>Бизнесийн мэдээлэл</b><span id="qcount">Асуулт 1 / 12</span></div>
+      <div class="prog" aria-hidden="true"><i id="progFill"></i></div>
+      <div class="stage" id="stage">
+        <section class="q on" data-key="product">
+          <p class="qn">Асуулт 1</p>
+          <h3>Та юу зарах вэ?</h3>
+          <p class="qsub">Бүтээгдэхүүн эсвэл брэндийнхээ нэрийг бичнэ үү.</p>
+          <div class="ans">
+            <input class="big" type="text" id="product" name="product" placeholder="Жишээ: Байгалийн найрлагатай гар саван" autocomplete="off">
+            <button type="button" class="linkbtn" id="fillDemo" style="margin-top:14px">Жишээ мэдээллээр туршиж үзэх</button>
+          </div>
+        </section>
+        <section class="q" data-key="cat" data-auto="1">
+          <p class="qn">Асуулт 2</p>
+          <h3>Ямар төрлийн бараа вэ?</h3>
+          <p class="qsub">Ангилалаа сонгоно уу. Сонгосны дараа дараагийн асуулт руу шилжинэ.</p>
+          <div class="ans">
+            <div class="opts compact" id="catTiles" role="radiogroup" aria-label="Ангилал"></div>
+          </div>
+        </section>
+        <section class="q" data-key="price" data-opt="price">
+          <p class="qn">Асуулт 3</p>
+          <h3>Үнэ болон ашгийн хувь хэд вэ?</h3>
+          <p class="qsub">Ашиг тэнцэх ROAS, CPA-г тооцоход хэрэгтэй. Мэдэхгүй бол алгасаж болно.</p>
+          <div class="ans">
+            <div class="grid2">
+              <div class="field"><label for="price">Нэгж үнэ</label><div class="affix"><input type="number" id="price" name="price" min="0" step="1000" inputmode="numeric" placeholder="45000"><i>₮</i></div></div>
+              <div class="field"><label for="margin">Ашгийн хувь</label><div class="affix"><input type="number" id="margin" name="margin" min="1" max="95" step="1" value="40" inputmode="numeric"><i>%</i></div><span class="hint">Зарын зардлаас өмнөх ашиг</span></div>
+            </div>
+          </div>
+        </section>
+        <section class="q" data-key="audience" data-opt="audience">
+          <p class="qn">Асуулт 4</p>
+          <h3>Хэнд зарах вэ?</h3>
+          <p class="qsub">Нас, хүйс, байршил, сонирхлоо бичнэ үү. Заавал биш.</p>
+          <div class="ans">
+            <input class="big" type="text" id="audience" name="audience" placeholder="Жишээ: 25–40 настай, Улаанбаатар дахь эмэгтэйчүүд" autocomplete="off">
+          </div>
+        </section>
+        <section class="q" data-key="stage" data-auto="1">
+          <p class="qn">Асуулт 5</p>
+          <h3>Одоогийн байдал ямар вэ?</h3>
+          <p class="qsub">Танд хамгийн ойр байгааг сонгоно уу.</p>
+          <div class="ans">
+            <div class="opts" role="radiogroup" aria-label="Одоогийн байдал">
+              <label class="opt"><input type="radio" name="stage" value="new"><span><b>Шинээр эхэлж байна</b><small>Борлуулалт бараг байхгүй</small></span></label>
+              <label class="opt"><input type="radio" name="stage" value="some" checked><span><b>Борлуулалттай</b><small>Гэхдээ тогтмол биш</small></span></label>
+              <label class="opt"><input type="radio" name="stage" value="steady"><span><b>Тогтвортой</b><small>Өсгөх шатанд байна</small></span></label>
+            </div>
+          </div>
+        </section>
+        <section class="q" data-key="reasons" data-opt="reasons">
+          <p class="qn">Асуулт 6</p>
+          <h3>Юу тань саад болж байна гэж боддог вэ?</h3>
+          <p class="qsub">Өөрийн бизнесийн алдаа, зарагдахгүй байгаа боломжит шалтгаануудаас тохирохыг нь сонго. Хэд ч сонгож болно, мэдэхгүй бол алгасаж болно.</p>
+          <div class="ans">
+            <div class="opts" role="group" aria-label="Саад бэрхшээл">
+              <label class="opt"><input type="checkbox" name="reasons" value="price"><span><b>Үнэ өндөр гэж боддог</b><small>Худалдан авагч үнээс буцдаг</small></span></label>
+              <label class="opt"><input type="checkbox" name="reasons" value="trust"><span><b>Биднийг мэддэггүй, итгэдэггүй</b><small>Шинэ, нотолгоо дутагдалтай</small></span></label>
+              <label class="opt"><input type="checkbox" name="reasons" value="reach"><span><b>Хүрэлт бага</b><small>Пост цөөн хүнд харагддаг</small></span></label>
+              <label class="opt"><input type="checkbox" name="reasons" value="slow"><span><b>Хариу удаан</b><small>Мессеж бичсэн хүн алга болдог</small></span></label>
+              <label class="opt"><input type="checkbox" name="reasons" value="inconsistent"><span><b>Контент тогтмол бус</b><small>Байнга тасалддаг, санаа дуусдаг</small></span></label>
+              <label class="opt"><input type="checkbox" name="reasons" value="differentiation"><span><b>Ялгарал тодорхойгүй</b><small>Өрсөлдөгчөөс юугаараа илүүг хэлж чаддаггүй</small></span></label>
+              <label class="opt"><input type="checkbox" name="reasons" value="cta"><span><b>Дараагийн алхам тодорхойгүй</b><small>Хэрхэн захиалахыг тодорхой хэлдэггүй</small></span></label>
+            </div>
+          </div>
+        </section>
+        <section class="q" data-key="pf">
+          <p class="qn">Асуулт 7</p>
+          <h3>Аль платформ дээр ажиллах вэ?</h3>
+          <p class="qsub">Хэд ч сонгож болно. Сонгож дуусаад «Дараах» дарна уу.</p>
+          <div class="ans">
+            <div class="chips" role="group" aria-label="Платформ">
+              <label class="chip"><input type="checkbox" name="pf" value="facebook" checked><span>Facebook</span></label>
+              <label class="chip"><input type="checkbox" name="pf" value="instagram"><span>Instagram</span></label>
+              <label class="chip"><input type="checkbox" name="pf" value="tiktok"><span>TikTok</span></label>
+              <label class="chip"><input type="checkbox" name="pf" value="youtube"><span>YouTube</span></label>
+            </div>
+          </div>
+        </section>
+        <section class="q" data-key="channel">
+          <p class="qn">Асуулт 8</p>
+          <h3>Захиалгыг хаанаас авдаг вэ?</h3>
+          <p class="qsub">Хэд ч сонгож болно. Хэрэглэгч захиалгаа өгдөг бүх сувгаа тэмдэглэ.</p>
+          <div class="ans">
+            <div class="opts" role="group" aria-label="Захиалгын суваг">
+              <label class="opt"><input type="checkbox" name="channel" value="messenger" checked><span><b>Messenger, DM</b><small>Мессежээр захиалга авна</small></span></label>
+              <label class="opt"><input type="checkbox" name="channel" value="web"><span><b>Вэбсайт</b><small>Өөрийн онлайн дэлгүүр</small></span></label>
+              <label class="opt"><input type="checkbox" name="channel" value="store"><span><b>Дэлгүүр, салбар</b><small>Биечлэн ирж авна</small></span></label>
+              <label class="opt"><input type="checkbox" name="channel" value="market"><span><b>Маркетплейс</b><small>Гуравдагч талын сайт</small></span></label>
+            </div>
+          </div>
+        </section>
+        <section class="q" data-key="goal">
+          <p class="qn">Асуулт 9</p>
+          <h3>Гол зорилго юу вэ?</h3>
+          <p class="qsub">Ирэх сард хүрэхийг хүссэн үр дүн. Хэд ч сонгож болно.</p>
+          <div class="ans">
+            <div class="opts" role="group" aria-label="Гол зорилго">
+              <label class="opt"><input type="checkbox" name="goal" value="sales" checked><span><b>Борлуулалт нэмэх</b><small>Захиалгын тоог өсгөнө</small></span></label>
+              <label class="opt"><input type="checkbox" name="goal" value="awareness"><span><b>Брэнд таниулах</b><small>Хүрэлт, дагагч өсгөнө</small></span></label>
+              <label class="opt"><input type="checkbox" name="goal" value="repeat"><span><b>Давтан худалдан авалт</b><small>Өмнөх худалдан авагчаа буцаана</small></span></label>
+              <label class="opt"><input type="checkbox" name="goal" value="launch"><span><b>Шинэ бүтээгдэхүүн</b><small>Урьдчилсан захиалга, эхний борлуулалт</small></span></label>
+            </div>
+          </div>
+        </section>
+        <section class="q" data-key="budget">
+          <p class="qn">Асуулт 10</p>
+          <h3>Сарын зарын төсөв хэд вэ?</h3>
+          <p class="qsub">Facebook, Instagram, TikTok-т зарцуулах боломжит дүн.</p>
+          <div class="ans">
+            <div class="field"><div class="affix"><input class="big" type="number" id="budget" name="budget" min="0" step="10000" inputmode="numeric" value="500000" aria-label="Сарын зарын төсөв"><i>₮</i></div></div>
+            <div class="quick" id="budgetQuick">
+              <button type="button" data-v="0">Төсөвгүй</button>
+              <button type="button" data-v="200000">200,000</button>
+              <button type="button" data-v="500000">500,000</button>
+              <button type="button" data-v="1000000">1,000,000</button>
+              <button type="button" data-v="3000000">3,000,000</button>
+            </div>
+          </div>
+        </section>
+        <section class="q" data-key="capacity" data-auto="1">
+          <p class="qn">Асуулт 11</p>
+          <h3>Контент хийх нөөц ямар вэ?</h3>
+          <p class="qsub">7 хоногт хэдэн контент хийж чадахыг үүгээр тооцно.</p>
+          <div class="ans">
+            <div class="opts" role="radiogroup" aria-label="Контент хийх нөөц">
+              <label class="opt"><input type="radio" name="capacity" value="solo"><span><b>Ганцаараа</b><small>Цаг бага</small></span></label>
+              <label class="opt"><input type="radio" name="capacity" value="small" checked><span><b>2–3 хүн</b><small>Жижиг баг</small></span></label>
+              <label class="opt"><input type="radio" name="capacity" value="team"><span><b>Баг, агентлаг</b><small>Тогтмол контент хийнэ</small></span></label>
+            </div>
+          </div>
+        </section>
+        <section class="q" data-key="usp" data-opt="usp">
+          <p class="qn">Асуулт 12</p>
+          <h3>Өрсөлдөгчөөсөө юугаараа ялгарах вэ?</h3>
+          <p class="qsub">Таны хамгийн хүчтэй давуу талыг сонго. Мэдэхгүй бол алгасаж болно, тодорхойгүй үед hook, текст илүү ерөнхий гарна.</p>
+          <div class="ans">
+            <div class="opts" id="uspTiles" role="radiogroup" aria-label="Давуу тал"></div>
+            <div class="field" id="uspOtherWrap" hidden style="margin-top:12px">
+              <label for="uspOther">Өөрөө бичих</label>
+              <input class="big" type="text" id="uspOther" name="uspOther" placeholder="Жишээ: Зөвхөн байгалийн гаралтай орц, химийн нэмэлтгүй" autocomplete="off">
+            </div>
+          </div>
+        </section>
+        <section class="q" data-key="summary">
+          <p class="qn">Бүх асуулт дууслаа</p>
+          <h3>Бэлэн боллоо. Мэдээллээ шалгана уу.</h3>
+          <p class="qsub">Засах зүйл байвал «Засах» товчийг дарна. Зөв бол төлөвлөгөөгөө гаргаарай.</p>
+          <dl class="sum" id="sum"></dl>
+        </section>
+      </div>
+      <div class="ierr"><p class="errmsg" id="err" role="alert" hidden></p></div>
+      <div class="ifoot">
+        <button type="button" class="btn ghost" id="prevBtn" hidden>Өмнөх</button>
+        <span class="sp"></span>
+        <button type="button" class="btn" id="nextBtn">Дараах</button>
+        <button type="submit" class="btn gold" id="submitBtn" hidden>Төлөвлөгөө гаргах</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="docwrap" id="doc" hidden aria-live="polite">
+    <div class="doc-grid">
+      <nav class="toc" aria-label="Баримтын агуулга">
+        <b>Агуулга</b>
+        <ol>
+          <li><a href="#s1">1. Оношилгоо</a></li>
+          <li><a href="#s2">2. Платформ</a></li>
+          <li><a href="#s3">3. 7 хоногийн контент</a></li>
+          <li><a href="#s4">4. Hook сан</a></li>
+          <li><a href="#s5">5. Boost ба төсөв</a></li>
+          <li><a href="#s6">6. 30 хоногийн төлөвлөгөө</a></li>
+          <li><a href="#s7">7. Хэмжилт</a></li>
+          <li><a href="#s8">8. Анхаарах зүйл</a></li>
+        </ol>
+      </nav>
+      <article class="doc" id="docBody"></article>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>Маркетинг Зөвлөх</span>
+    <span>Төлөвлөгөө нь таны оруулсан мэдээлэл ба сошиал маркетингийн ерөнхий зарчимд суурилсан зөвлөмж. Үр дүнг баталгаажуулахгүй.</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function () {
+"use strict";
+
+/* ---------- helpers ---------- */
+const $ = (s, r) => (r || document).querySelector(s);
+const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt = n => Math.round(n).toLocaleString("en-US") + "₮";
+const cap = s => s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
+const pad = n => String(n).padStart(2, "0");
+
+/* ---------- knowledge base ---------- */
+const CATS = {
+  beauty:{label:"Гоо сайхан, арьс арчилгаа", kind:"repeat", reg:true,
+    pain:"арьс нь хуурай, тэнцвэргүй санагддаг", objection:"миний арьсны төрөлд тохирох болов уу",
+    proof:"бодит хэрэглэгчийн сэтгэгдэл, хэрэглэсэн хугацааны тэмдэглэл", demo:"өглөө, оройн арчилгааны дараалал",
+    mistake:"бүтээгдэхүүнийг буруу дарааллаар түрхэх", platforms:["instagram","tiktok","facebook"]},
+  fashion:{label:"Хувцас, гутал, загвар", kind:"trend",
+    pain:"өмсөх юм алга гэж боддог, юу өмсөхөө шийдэж чаддаггүй", objection:"размер надад таарах болов уу",
+    proof:"өөр өөр биетэй хүмүүс өмссөн бичлэг, размерын хүснэгт", demo:"нэг хувцсыг 3 янзаар хослуулах",
+    mistake:"размерыг зөвхөн шошгоор нь сонгох", platforms:["instagram","tiktok","facebook"]},
+  food:{label:"Хоол хүнс, ундаа, амттан", kind:"repeat",
+    pain:"өдөр бүр юу идэхээ шийдэж чаддаггүй, цаг нь хүрдэггүй", objection:"шинэхэн ирэх болов уу, хүргэлт хэр хурдан бэ",
+    proof:"бэлтгэлийн явц, хүргэлтийн бичлэг, хэрэглэгчийн сэтгэгдэл", demo:"бэлтгэлийн явц ба эхний амтлалт",
+    mistake:"хадгалах нөхцөлийг үл тоох", platforms:["facebook","instagram","tiktok"]},
+  home:{label:"Гэр ахуй, тавилга, интерьер", kind:"consider",
+    pain:"гэр нь бөөгнөрсөн, эмх цэгцгүй санагддаг", objection:"манай өрөөнд багтах болов уу, чанар нь хэр вэ",
+    proof:"бодит гэр доторх зураг, хэмжээ, баталгааны нөхцөл", demo:"өрөөнд байрлуулсан өмнө ба дараах харагдац",
+    mistake:"хэмжээгээ авалгүй захиалах", platforms:["facebook","instagram","youtube"]},
+  tech:{label:"Цахилгаан бараа, гаджет", kind:"consider",
+    pain:"сонголт олон, аль нь үнэ цэнэтэйг ялгаж чаддаггүй", objection:"баталгаа байгаа юу, эвдэрвэл яах вэ",
+    proof:"бодит туршилт, баталгааны нөхцөл, харьцуулалт", demo:"бодит хэрэглээний тест",
+    mistake:"зөвхөн үнээр нь харьцуулах", platforms:["facebook","youtube","tiktok"]},
+  kids:{label:"Хүүхэд, эх нялхас", kind:"consider", reg:true,
+    pain:"хүүхдэдээ аюулгүй, чанартайг нь сонгохын тулд бүтээгдэхүүн бүрийг нягталдаг", objection:"хүүхдэд аюулгүй эсэх, насанд нь таарах эсэх",
+    proof:"эцэг эхийн бодит сэтгэгдэл, материалын мэдээлэл", demo:"хүүхдийн өдөр тутмын хэрэглээнд бодитоор харуулах",
+    mistake:"насны зөвлөмжийг харгалзахгүй сонгох", platforms:["facebook","instagram","tiktok"]},
+  health:{label:"Эрүүл мэнд, спорт, нэмэлт тэжээл", kind:"repeat", reg:true,
+    pain:"эрүүл зуршлаа тогтмолжуулж чаддаггүй", objection:"үнэхээр хэрэгтэй юу, аюулгүй юу",
+    proof:"найрлагын мэдээлэл, гэрчилгээ, бодит хэрэглэгчийн туршлага", demo:"өдөр тутмын хэрэглээнд яаж багтаах",
+    mistake:"мэргэжлийн зөвлөгөөгүй өөрөө таамаглах", platforms:["facebook","instagram","tiktok"]},
+  gift:{label:"Бэлэг, гар урлал, өвөрмөц бараа", kind:"gift",
+    pain:"хэнд ямар бэлэг өгөхөө мэдэхгүй, сүүлийн мөчид яардаг", objection:"бэлэглэхэд бэлэн ирэх үү, хугацаандаа хүрэх үү",
+    proof:"бэлэг хүлээн авагчдын бодит сэтгэгдэл, савлагааны зураг", demo:"савлагаа ба бэлэглэх дүр",
+    mistake:"баяраас хэт ойрхон захиалах", platforms:["instagram","facebook","tiktok"]},
+  b2b:{label:"Бөөний, байгууллагад зарах", kind:"b2b",
+    pain:"нийлүүлэгч солиход эрсдэлтэй, чанарын тогтвортой байдал нь зовоодог", objection:"нийлүүлэлт тогтвортой юу, үнийн тооцоо ямар байх вэ",
+    proof:"хамтрагч байгууллагын жишээ, дээж, гэрээний нөхцөл", demo:"дээж, каталог, тооцооны жишээ",
+    mistake:"зөвхөн нэгж үнээр нийлүүлэгч сонгох", platforms:["facebook","youtube","instagram"]},
+  other:{label:"Бусад бараа", kind:"consider",
+    pain:"хэрэгцээгээ хангах тохирох сонголтоо олж чаддаггүй", objection:"надад үнэхээр тохирох болов уу",
+    proof:"бодит хэрэглэгчийн сэтгэгдэл, баталгааны нөхцөл", demo:"бодит хэрэглээний жишээ",
+    mistake:"үнийг нь харж түргэн шийдэх", platforms:["facebook","instagram","tiktok"]}
+};
+
+const KINDS = {
+  repeat:{name:"давтан авдаг бараа", offer:"2+1 багц эсвэл давтан авалтад тусгай үнэ", focus:[
+    {t:"Давтан худалдан авалтыг төлөвлө", d:"Ашиг нь нэг удаагийн борлуулалтаас илүү давтамжаас гардаг. Багц, сануулга, урамшууллын картаар анхны худалдан авагчаа буцааж авчир."},
+    {t:"Тогтмол, сургах чиглэлийн контент", d:"Хэрхэн хэрэглэх, сонгох тухай контент нь итгэл ба давтан хэрэглээг бий болгодог."},
+    {t:"Дундаж захиалгын дүнг өсгө", d:"Нэмэлт бүтээгдэхүүн, багц санал нь ижил зарын зардлаар илүү орлого өгнө."}]},
+  consider:{name:"удаан бодож шийддэг бараа", offer:"баталгаа болон туршиж үзэх нөхцөл, боломжтой бол хуваан төлөх", focus:[
+    {t:"Итгэл ба нотолгоо", d:"Үнэтэй, удаан бодож шийддэг бараанд бодит сэтгэгдэл, баталгаа, харьцуулалт хамгийн хүчтэй хөшүүрэг болдог."},
+    {t:"Асуултад шуурхай хариулах", d:"Сонирхсон хүн хариу авч чадахгүй бол өөр газар очдог. Түгээмэл асуултын бэлэн хариу бэлд, хариуг хурдан өг."},
+    {t:"Эргэлзээг арилгах санал", d:"Баталгаа, туршиж үзэх боломж, боломжтой бол хуваан төлөх нөхцөл нь шийдвэр гаргахад тусална."}]},
+  trend:{name:"загвар, трэнд бараа", offer:"хязгаарлагдмал тоотой шинэ цуглуулга", focus:[
+    {t:"Богино бичлэг", d:"Загварын бараа хараад л сонирхогддог тул Reels, TikTok зэрэг богино бичлэгээр хамгийн өргөн хүрнэ."},
+    {t:"Микро инфлюенсер", d:"Том нэрээс илүү, үзэгчдийнх нь итгэл өндөр жижиг инфлюенсер бүтээгдэхүүнд бодитоор тохирох үед үр дүнтэй."},
+    {t:"Шинэлэг байдал ба хязгаарлагдмал тоо", d:"Шинэ цуглуулга, бодит хязгаартай тоо нь шийдвэрийг түргэсгэнэ. Худал хязгаар бүү ашигла."}]},
+  gift:{name:"бэлэг, өвөрмөц бараа", offer:"бэлгийн багц ба хүргэлт", focus:[
+    {t:"Баярын хуанлиа урьдчилан ашигла", d:"Бэлтгэлээ баярын 3–4 долоо хоногийн өмнө эхлүүл. Бэлэг сонгодог хүмүүс эрт төлөвлөдөг."},
+    {t:"Бэлэглэх хэрэглээг харуул", d:"Савлагаа, бэлэг өгөх мөч, хүлээн авагчийн хариу үйлдлийг харуулсан контент бүтээгдэхүүнээс илүү мэдрэмж борлуулна."},
+    {t:"Хүргэлтийн хугацааны баталгаа", d:"Бэлэгт хугацаа хамгийн чухал. Хэдэн өдрийн өмнө захиалбал хүрэхийг тодорхой хэл."}]},
+  b2b:{name:"бөөний, байгууллагад зарах бараа", offer:"дээж ба үнийн санал", focus:[
+    {t:"Каталог ба үнийн тооцоо", d:"Байгууллага гоо зүйн контентоос илүү тодорхой мэдээлэл, тооцоо хардаг. Каталог, тоо хэмжээгээр үнийн жишээ бэлд."},
+    {t:"Шууд холбоо барих", d:"Facebook групп, шууд мессеж, лавлагаа нь шийдвэр гаргагчид хамгийн хурдан хүрдэг зам."},
+    {t:"Хамтрагчийн жишээ, кейс", d:"Одоогийн хамтрагчийн туршлага, дээж нь итгэлийг бий болгоно."}]}
+};
+
+const GOAL_FOCUS = {
+  awareness:{t:"Хүрэлт ба үзэлтийг өсгө", d:"Мэдэгдэх шатыг тэргүүлэх зорилго болгосон тул богино бичлэг, хамтын ажиллагаа, хуваалцахуйц контентыг эрхэмл."},
+  repeat:{t:"Одоогийн худалдан авагчаа буцааж авчир", d:"Өмнө авсан хүмүүс шинээр олсон хүнээс хямд өртгөөр захиалга өгдөг. Сануулга, багц, урамшуулал бэлд."},
+  launch:{t:"Урьдчилсан захиалга ба эхний 20 захиалга", d:"Шинэ бүтээгдэхүүнд эхний үнэлгээ, сэтгэгдэл хамгийн үнэ цэнэтэй. Урьдчилсан жагсаалт, эхний худалдан авагчдад тусгай нөхцөл бэлд."}
+};
+const ZERO_FOCUS = {t:"Төлбөргүй хүрэлтийг ашигла", d:"Зарын төсөвгүй үед Facebook групп, хэрэглэгчийн контент (UGC), бартер хамтын ажиллагаа хамгийн хямд хөшүүрэг болно."};
+
+const STAGES = {
+  new:{label:"Шинээр эхэлж байгаа", gap:"Мэдэгдэх ба итгэл",
+    txt:"Одоогоор таныг таньдаг хүн цөөн, итгэл бий болоогүй байх магадлалтай. Эхний сард хамгийн чухал нь бүтээгдэхүүнээ бодитоор харуулах, нэг тодорхой алхмаар захиалга авдаг болох, эхний сэтгэгдлүүдийг цуглуулах."},
+  some:{label:"Борлуулалттай ч тогтмол биш", gap:"Сонирхох, шийдэх",
+    txt:"Асуух хүн байгаа ч захиалга болгож чаддаггүй, эсвэл борлуулалт тогтмол биш байх магадлалтай. Гацаа ихэвчлэн итгэл, үнийн ойлголт, хариултын хурд, захиалгын алхмын энгийн байдалд байдаг."},
+  steady:{label:"Тогтвортой борлуулалттай", gap:"Давтах ба өсгөх",
+    txt:"Суурь борлуулалт бий тул өсөлт нь ажиллаж байгаа зүйлээ томруулах, давтан худалдан авалт ба дундаж захиалгын дүнг нэмэхэд илүү байна."}
+};
+
+const PF = {
+  facebook:{n:"Facebook, Messenger", r:"Захиалга авах гол суваг, групп, зар, live"},
+  instagram:{n:"Instagram", r:"Харагдац: Reels, Stories, Highlights-ыг каталог мэт ашиглана"},
+  tiktok:{n:"TikTok", r:"Богино бичлэгээр шинэ үзэгчид рүү хүрэх, бодит хэрэглээ харуулах"},
+  youtube:{n:"YouTube", r:"Дэлгэрэнгүй тайлбар, харьцуулалт, заавар, үнэлгээ"}
+};
+
+const CHANNELS = {
+  messenger:{cta:"Захиалахын тулд Messenger-ээр «ЗАХИАЛГА» гэж бичээрэй.", short:"Messenger-ээр «ЗАХИАЛГА» гэж бичээрэй", obj:"Мессеж (Messenger)", label:"Messenger, DM"},
+  web:{cta:"Доорх линкээр захиалаарай: [линк]", short:"Доорх линкээр захиалаарай", obj:"Худалдан авалт эсвэл сайт руу зочлолт (Pixel тохируулсан бол)", label:"Өөрийн вэбсайт"},
+  store:{cta:"Манай дэлгүүрт зочилоорой: [хаяг, цаг]", short:"Дэлгүүрт зочилоорой", obj:"Хүрэлт ба мессеж (дэлгүүрийн байршилтай)", label:"Дэлгүүр, салбар"},
+  market:{cta:"Манай дэлгүүрээс захиалаарай: [маркетплейс, линк]", short:"Маркетплейс дээрх манай дэлгүүрээс захиалаарай", obj:"Линк рүү зочлолт эсвэл мессеж", label:"Маркетплейс"}
+};
+
+const CLOSE = "Дэлгэрэнгүй мэдээлэл авахыг хүсвэл бидэнтэй холбогдоно уу.";
+
+const REASONS = {
+  price:{label:"Үнэ өндөр гэж боддог",
+    diag:"Худалдан авагч үнийг чинь өндөр гэж бодож байгаа бол ихэвчлэн энэ нь үнийн ард юу байгаа нь тодорхой биш байдагтай холбоотой байдаг.",
+    tip:"Үнийн ард юу байгааг (найрлага, цаг хугацаа, баталгаа) тодорхой харуул, багц эсвэл шатлалтай үнэ санал болго."},
+  trust:{label:"Биднийг мэддэггүй, итгэдэггүй",
+    diag:"Шинэ эсвэл цөөн хүнд танигдсан бизнест худалдан авагч эхний алхмыг хийхээс өмнө баталгаа хайдаг.",
+    tip:"Бодит хэрэглэгчийн сэтгэгдэл, ажлын өрөөний контент, баталгааны нөхцлөө тодорхой харуул."},
+  reach:{label:"Хүрэлт бага",
+    diag:"Пост цөөн хүнд харагдаж байгаа бол контент хэр сайн байгаагаас үл хамааран борлуулалт өсөхгүй.",
+    tip:"Нийтлэх давтамжаа тогтвортой болго, hook-оо сайжруул, бага хэмжээний boost-оор organic хүрэлтээ нэмэгдүүл."},
+  slow:{label:"Хариу удаан",
+    diag:"Сонирхсон хүн хариу хүлээж чадахгүй бол өөр газар очдог тул хариултын хурд нь худалдан авалт болгох хамгийн том хүчин зүйлсийн нэг.",
+    tip:"Автомат мэдэгдэл, бэлэн хариулт бэлдэж, ажлын цагаар 5 минутын дотор хариулахыг зорь."},
+  inconsistent:{label:"Контент тогтмол бус",
+    diag:"Тасалдалтай контент нь хэрэглэгчийн анхаарлыг тогтвортой барьж чадахгүй, таны хуудсыг идэвхгүй мэт харуулдаг.",
+    tip:"7 хоногийн бэлэн төлөвлөгөөгөөр ажилла, контентоо нэг өдөр бөөнөөр нь бэлтгэ."},
+  differentiation:{label:"Ялгарал тодорхойгүй",
+    diag:"Өрсөлдөгчөөсөө юугаараа илүү болохоо тодорхой хэлж чадахгүй бол худалдан авагч хямд сонголтыг сонгодог.",
+    tip:"Давуу талаа нэг өгүүлбэрээр тодорхойлж, hook болон профайлын тайлбартаа тогтмол давтаарай."},
+  cta:{label:"Дараагийн алхам тодорхойгүй",
+    diag:"Хэрхэн захиалахыг тодорхой зааж өгөөгүй бол сонирхсон хүн ч гэсэн алхам хийхгүй орхидог.",
+    tip:"Пост, бичлэг бүрийн төгсгөлд яг юу хийхийг (хаана бичих, юу гэж бичих) тодорхой зааж өг."}
+};
+
+const GOALS = {sales:"Борлуулалт нэмэгдүүлэх", awareness:"Брэнд таниулах, дагагч өсгөх", repeat:"Давтан худалдан авалт өсгөх", launch:"Шинэ бүтээгдэхүүн танилцуулах"};
+
+const USP_OPTS = {
+  quality:{label:"Чанар, цэвэр найрлага", small:"Бусдаас цэвэр, чанартай орц/материал ашигладаг", text:"цэвэр, өндөр чанартай найрлага/материал ашигладаг"},
+  price:{label:"Хямд, боломжийн үнэ", small:"Ижил чанарыг хямд үнээр санал болгодог", text:"ижил чанарыг бусдаас хямд, боломжийн үнээр санал болгодог"},
+  speed:{label:"Хурдан хүргэлт, үйлчилгээ", small:"Захиалга, хүргэлт түргэн", text:"захиалга авснаасаа хойш хурдан хүргэдэг/үйлчилдэг"},
+  warranty:{label:"Баталгаа, буцаалт", small:"Эвдрэл, таалагдахгүй үед буцаалттай", text:"баталгаа, буцаалтын тодорхой нөхцөлтэй"},
+  experience:{label:"Туршлага, мэргэшил", small:"Тухайн салбарт арвин туршлагатай", text:"тухайн чиглэлээр арвин туршлага, мэргэшилтэй"},
+  custom_fit:{label:"Хувь хүнд тохируулсан", small:"Хэрэглэгч бүрт тусгайлан тохируулдаг", text:"хэрэглэгч бүрийн хэрэгцээнд тусгайлан тохируулдаг"},
+  unique:{label:"Өвөрмөц арга, технологи", small:"Бусдад байхгүй арга, жор, технологи", text:"бусдад байхгүй өвөрмөц арга, жор эсвэл технологи ашигладаг"},
+  service:{label:"Дотно, хурдан үйлчилгээ", small:"Харилцах байдал, хариу өгөх хурд давуу тал", text:"дотно, хурдан хариу үйлчилгээгээр ялгардаг"}
+};
+const CAPS = {solo:"Ганцаараа, цаг бага", small:"2–3 хүн", team:"Баг эсвэл агентлаг"};
+
+const SEASON = [
+  ["Цагаан сарын өмнөх бэлтгэл","Бэлэг, хүнс, хувцас, гэр ахуйн эрэлт өсдөг үе. 3–4 долоо хоногийн өмнөөс контент, нөөцөө бэлд."],
+  ["Цагаан сар ба 3-р сарын 8-ын бэлтгэл","Бэлгийн ангилалд эрт эхэлсэн нь давуутай. Хүргэлтийн эцсийн хугацааг тодорхой зарла."],
+  ["Эмэгтэйчүүдийн өдөр, хаврын шинэчлэл","Бэлгийн багц, хаврын цуглуулгад төвлөр."],
+  ["Хаврын улирал","Гадаа гарах, зуны бэлтгэлтэй холбоотой контент сайн ажилладаг үе."],
+  ["Хүүхдийн баярын бэлтгэл","Хүүхдийн бараа, бэлэг, гэр бүлийн контентын улирал эхэлнэ."],
+  ["Хүүхдийн баяр, Наадмын бэлтгэл","Наадмын өмнөх эрэлтэд бэлдэж, нөөц ба хүргэлтээ төлөвлө."],
+  ["Наадам, зуны амралт","Амралт, аялал, гадаа хэрэглэх барааны улирал. Хүргэлтийн хуваарь өөрчлөгдөж болно."],
+  ["Хичээлийн шинэ жилийн бэлтгэл","Сурагч, эцэг эх, оффисын хэрэглээнд чиглэсэн санал бэлд."],
+  ["Намар, өвлийн бэлтгэлийн эхлэл","Дулаан хувцас, гэр ахуй, эрүүл мэндийн барааны эрэлт өсч эхэлнэ."],
+  ["Өвлийн бэлтгэл, 11-р сарын урамшууллын өмнөх үе","Black Friday, 11.11-д оролцох бол энэ сард саналаа, нөөцөө, зарын аудиторио бэлд."],
+  ["11.11, Black Friday, Шинэ жилийн бэлтгэл","Өрсөлдөөн ихсэж зарын өртөг өсдөг тул хугацаанаасаа өмнө retargeting аудиторио цуглуул."],
+  ["Шинэ жил, бэлэг, Цагаан сарын бэлтгэлийн эхлэл","Бэлгийн багц, хүргэлтийн эцсийн хугацааг тодорхой зарлаж, тайлан дүгнэлт хий."]
+];
+
+/* ---------- plan engine ---------- */
+function build(d){
+  const cat = CATS[d.cat], kind = KINDS[cat.kind];
+  const channels = d.channels.length ? d.channels : ["messenger"];
+  const goals = d.goals.length ? d.goals : ["sales"];
+  const chan = CHANNELS[channels[0]], stage = STAGES[d.stage];
+  const chanLabel = channels.map(c => CHANNELS[c].label).join(", ");
+  const chanCTA = channels.length === 1 ? CHANNELS[channels[0]].cta
+    : channels.map(c => CHANNELS[c].short).join(" эсвэл ") + ".";
+  const chanShort = channels.map(c => CHANNELS[c].short).join(" эсвэл ");
+  const chanObj = channels.length === 1 ? CHANNELS[channels[0]].obj : channels.map(c => CHANNELS[c].obj).join(", ");
+  const goalLabel = goals.map(g => GOALS[g]).join(", ");
+  const now = new Date();
+  const season = {month: now.getMonth() + 1, label: SEASON[now.getMonth()][0], tip: SEASON[now.getMonth()][1]};
+  const m = Math.min(95, Math.max(1, d.margin || 40));
+  const price = d.price > 0 ? d.price : 0;
+  const B = d.budget > 0 ? d.budget : 0;
+
+  const offer = goals.includes("repeat") ? "давтан авалтад тусгай үнэ эсвэл багц" : kind.offer;
+  const priceText = price ? fmt(price) : "[үнэ]";
+  const reasonNotes = (d.reasons || []).filter(k => REASONS[k]).map(k => ({t: REASONS[k].label, d: REASONS[k].diag + " " + REASONS[k].tip}));
+
+  /* platforms */
+  let selected = d.pf.length ? d.pf.slice() : cat.platforms.slice(0, 1);
+  const order = cat.platforms.concat(Object.keys(PF).filter(x => cat.platforms.indexOf(x) < 0));
+  selected.sort((a, b) => order.indexOf(a) - order.indexOf(b));
+  const pfRows = selected.map((k, i) => ({key:k, name:PF[k].n, role:PF[k].r,
+    level: i === 0 ? "Үндсэн" : i === 1 ? "Туслах" : "Дахин ашиглах"}));
+  const pfNotes = [];
+  if (selected.length > 2) pfNotes.push("Эхний 30 хоногт 3–4 платформыг нэг зэрэг сайн хийхэд хэцүү. Үндсэн ба туслах гэсэн 2 платформд төвлөр, бусад дээр нэг бичлэгээ дахин ашигла.");
+  if (selected.length === 1) pfNotes.push("Нэг платформ дээр төвлөрөх нь эхлэлд зөв. Бичлэгээ бусад платформд дахин нийтэлж үзэж болно.");
+  if (cat.kind === "b2b") pfNotes.push("Байгууллагад зарах үед Facebook групп, шууд мессеж, лавлагаа илүү үр дүнтэй. Гоо зүйн контентоос каталог, тооцоо чухал.");
+  if (channels.includes("messenger")) pfNotes.push("Захиалгаа Messenger, DM-ээр авдаг тул автомат мэдэгдэл, бэлэн хариулт, хариуны хурд зарын төсвөөс ч илүү чухал.");
+  if (channels.includes("web")) pfNotes.push("Вэбсайтаар захиалга авдаг бол зар ажиллуулахаас өмнө Pixel, худалдан авалтын хэмжилтээ тохируул.");
+  const primary = pfRows[0].key;
+  const hasShort = selected.indexOf("tiktok") >= 0 || selected.indexOf("instagram") >= 0;
+  const videoName = hasShort ? "Reels, TikTok бичлэг (15–30 сек)" : "Facebook Reels, богино бичлэг (15–30 сек)";
+
+  /* focus */
+  let focus = reasonNotes.slice(0, 2);
+  if (B === 0) focus.push(ZERO_FOCUS);
+  goals.forEach(g => { if (GOAL_FOCUS[g] && !focus.some(f => f.t === GOAL_FOCUS[g].t)) focus.push(GOAL_FOCUS[g]); });
+  kind.focus.forEach(f => { if (!focus.some(x => x.t === f.t)) focus.push(f); });
+  focus = focus.slice(0, 4);
+
+  /* assumptions */
+  const assumptions = [];
+  assumptions.push(d.audience ? "Зорилтот хэрэглэгч: " + d.audience : "Зорилтот хэрэглэгчийг оруулаагүй тул ерөнхий таамаглал ашиглав. Тодорхой болгосноор hook, зарын аудитори оновчтой болно.");
+  assumptions.push(price ? "Нэгж үнэ " + fmt(price) + ", зарын өмнөх ашгийн хувь " + m + "%." : "Нэгж үнэ оруулаагүй тул ашиг тэнцэх CPA-г тооцож чадсангүй.");
+  assumptions.push("Ангиллын төрөл: " + kind.name + ". Энэ төрөлд тохирсон стратегийг сонгосон.");
+  if (d.usp) assumptions.push("Давуу тал: " + d.usp + ". Hook болон санал дээр энийг тодруулж ашигласан.");
+  assumptions.push("Нийтлэх цаг нь эхлэлийн таамаглал. 2 долоо хоногийн дараа өөрийн Insights-ийн өгөгдлөөр засна.");
+
+  /* hooks */
+  const p = d.product;
+  const hooks = [];
+  if (d.usp) hooks.push({type:"Давуу тал", text:cap(d.usp) + " — " + p + "-г бусдаас ялгаж байгаа гол шалтгаан.", use:"Профайлын тайлбар; зарын гарчиг; бичлэгийн эхний секунд"});
+  hooks.push(
+    {type:"Асуудал", text:"Хэрэв " + cat.pain + " бол энийг эцэс хүртэл үзээрэй.", use:"Reels, TikTok-ийн эхний 1–3 секунд; зарын эхний мөр"},
+    {type:"Алдаа", text:"Олон хүн " + cat.mistake + " алдаа гаргадаг.", use:"Сургах бичлэг, carousel-ийн нүүр"},
+    {type:"Эргэлзээ", text:"«" + cap(cat.objection) + "?» Хамгийн их асуудаг асуултад хариулъя.", use:"Пүрэв гарагийн пост; зарын гарчиг"},
+    {type:"Нотолгоо", text:p + " — бодит хэрэглэгч юу гэж хэлсэн бэ?", use:"Нотолгооны пост; warm аудиторийн зар"},
+    {type:"Шалгуур", text:p + " сонгохоосоо өмнө энэ 3 зүйлийг шалгаарай.", use:"Carousel, Facebook пост"},
+    {type:"Шударга байдал", text:p + " танд тохирохгүй байж болох 3 тохиолдол.", use:"Итгэл бий болгох пост; шинэ брэндэд онцгой сайн"},
+    {type:"Ард талын түүх", text:"Ард нь юу байдгийг харуулъя: " + p + " хэрхэн бэлтгэгддэг вэ?", use:"Story, Reels"},
+    {type:"Санал", text:"Энэ долоо хоногт: " + offer + ". [Үнэн хугацаа эсвэл тоо] дуусахаас өмнө мэдээлэл аваарай.", use:"Баасан гарагийн пост; hot аудиторийн зар"},
+    {type:"Харьцуулалт", text:p + " ба ердийн сонголтын ялгаа яг юунд байна вэ?", use:"Харьцуулалтын бичлэг, YouTube"},
+    {type:"Бодит хэрэглээ", text:"Бодит хугацаагаар: " + cat.demo + ".", use:"Reels, TikTok; live-ийн танилцуулга"},
+    {type:"Улирал", text:season.label + ": " + p + " хэзээ захиалбал зөв вэ?", use:"Улирлын постууд; зарын гарчиг"}
+  );
+
+  /* days */
+  const cap_ = d.capacity;
+  const lvl = {
+    solo:["main","light","main","light","main","light","light"],
+    small:["main","light","main","main","main","live","light"],
+    team:["main","main","main","main","main","live","main"]
+  }[cap_];
+  const close = CLOSE, cta = chanCTA, ctaS = chanShort;
+  const H = type => (hooks.find(h => h.type === type) || {}).text || "";
+  const H_MISTAKE = H("Алдаа"), H_PROOF = H("Нотолгоо"), H_OBJECTION = H("Эргэлзээ"), H_OFFER = H("Санал");
+  const trend = cat.kind === "trend";
+
+  const defs = [
+    {day:"Даваа", pillar:"Сургах", time:"20:00–22:00", boost:"Cold",
+      format:videoName, isVideo:true, hook:H_MISTAKE, scriptLabel:"Бичлэгийн бүтэц",
+      script:[
+        "Hook (0–3 сек): " + H_MISTAKE,
+        "Асуудал (3–8 сек): Үзэгч өөрийгөө таних нөхцөлийг нэг өгүүлбэрээр хэл. Жишээ нь: «" + cap(cat.pain) + "»",
+        "Шийдэл (8–20 сек): Бүтээгдэхүүнээ ашиглан бодитоор харуул: " + cat.demo,
+        "Нотолгоо (20–25 сек): Нэг нотолгоо үзүүл: " + cat.proof,
+        "CTA (25–30 сек): " + ctaS
+      ],
+      caption:H_MISTAKE + "\n\nҮүнээс сэргийлэх 3 алхам:\n1) [Алхам 1]\n2) [Алхам 2]\n3) [Алхам 3]\n\nЭнэ хэсэгт " + p + " хэрхэн тусалдгийг бичлэгээс үзээрэй.\n" + cta,
+      light:null},
+    {day:"Мягмар", pillar:"Дотно, түүх", time:"12:00–13:00",
+      format:"Пост ба Story: ажлын өрөөний өдөр", hook:"Өнөөдөр манай ажлын өрөөнөөс.",
+      script:null,
+      caption:"Өнөөдөр манай ажлын өрөөнөөс.\n[Юу хийж байгаагаа 1–2 өгүүлбэрээр хэл]\n\n" + p + " — яагаад эхлүүлсэн бэ? [Өөрийн товч түүх, 2–3 өгүүлбэр]\n" + close,
+      light:"Story 2–3 хэсэг: ажлын өрөө эсвэл бэлтгэлийн явц, нэг асуултын sticker."},
+    {day:"Лхагва", pillar:"Нотлох", time:"20:00–22:00", boost:"Warm",
+      format:(trend && cap_ === "solo") ? videoName : "Carousel эсвэл пост: бодит сэтгэгдэл", isVideo:(trend && cap_ === "solo"), hook:H_PROOF, scriptLabel:"Слайдын бүтэц",
+      script:[
+        "Слайд 1: " + H_PROOF,
+        "Слайд 2–4: Бодит сэтгэгдлийн дэлгэцийн зураг эсвэл хэрэглээний зураг (эзний зөвшөөрөлтэй)",
+        "Слайд 5: Нотолгооны нэг тоо эсвэл баталгаа: " + cat.proof,
+        "Слайд 6: " + ctaS
+      ],
+      caption:H_PROOF + "\n\n«[Хэрэглэгчийн бодит сэтгэгдэл]» — [Нэр, зөвшөөрөлтэй]\n\nСэтгэгдлийг өөрчлөөгүй, эзнийх нь зөвшөөрлөөр нийтэллээ. Та бидний бүтээгдэхүүнийг туршсан бол туршлагаа илгээгээрэй.\n" + cta,
+      light:null},
+    {day:"Пүрэв", pillar:"Сургах", time:"12:00–13:00",
+      format:(trend && cap_ !== "solo") ? videoName : "Carousel эсвэл пост: сонгох зөвлөгөө", isVideo:(trend && cap_ !== "solo"), hook:H_OBJECTION, scriptLabel:"Слайдын бүтэц",
+      script:[
+        "Слайд 1: " + H_OBJECTION,
+        "Слайд 2: Эргэлзээ: " + cat.objection,
+        "Слайд 3–5: Сонгохын өмнө шалгах 3 шалгуур",
+        "Слайд 6: " + ctaS
+      ],
+      caption:H_OBJECTION + "\n\nСонгохын өмнө шалгах 4 зүйл:\n1) [Шалгуур 1]\n2) [Шалгуур 2]\n3) [Шалгуур 3]\n4) [Шалгуур 4]\n\nНэмэлт асуулт байвал доор бичээрэй, хариулна.\n" + cta,
+      light:"Story: санал асуулга («Аль нь танд илүү хэрэгтэй вэ?»). Хариулт нь дараагийн контентын санаа болно."},
+    {day:"Баасан", pillar:"Борлуулах", time:"19:00–21:00", boost:"Hot",
+      format:"Санал бүхий пост ба Story", hook:H_OFFER, script:null,
+      caption:H_OFFER + "\n\nЭнэ долоо хоногийн санал: " + offer + ".\nХэнд тохирох: [1 өгүүлбэр]\nЮу багтсан: [жагсаалт]\nҮнэ: " + priceText + "\nХүргэлт, төлбөр: [хугацаа, QPay эсвэл банк]\nХугацаа эсвэл тоо: [үнэн хугацаа, үлдэгдэл]\n" + cta,
+      light:null},
+    {day:"Бямба", pillar:"Дотно, түүх", time:"20:00",
+      format:"Live: асуулт хариулт (20–30 минут)", hook:"Live: " + p + "-ийн талаарх асуултад хариулна.", isLive:true, scriptLabel:"Live-ийн бүтэц",
+      script:[
+        "0–3 мин: Тавтай морилно уу. Өнөөдөр юу ярихаа товч хэл.",
+        "3–10 мин: Бодитоор харуул: " + cat.demo,
+        "10–20 мин: Урьдчилан цуглуулсан асуултууд. Заавал хариулах нэг нь: " + cat.objection,
+        "20–25 мин: Долоо хоногийн санал (" + offer + "), төлбөр, хүргэлтийн нөхцөл",
+        "25–30 мин: " + ctaS
+      ],
+      caption:"Бямба гарагийн Live — 20:00.\nЯрих сэдэв: " + cat.demo + ".\nАсуултаа урьдчилан коммент хэсэгт бичээрэй, live дээр хариулна.\n" + close,
+      light:"Story: 5 минутын асуулт хариулт (Questions sticker). Хариултаа Story-оор өг."},
+    {day:"Ням", pillar:"Нотлох, дүгнэлт", time:"19:00–21:00",
+      format:"Пост: 7 хоногийн дүгнэлт", hook:"Энэ 7 хоногт хамгийн их асуусан 3 асуулт. Хариулъя.", script:null,
+      caption:"Энэ 7 хоногт хамгийн их асуусан 3 асуулт. Хариулъя.\n1) [Асуулт 1 ба хариулт]\n2) [Асуулт 2 ба хариулт]\n3) [Асуулт 3 ба хариулт]\n\nЗахиалагчиддаа баярлалаа. Та бүтээгдэхүүнээ хэрэглэсэн бол зураг, сэтгэгдлээ илгээвэл (зөвшөөрөлтэйгөөр) манай хуудсанд нийтэлнэ.",
+      light:"Story: захиалагчдад талархал, зураг ба сэтгэгдэл хүсэх (UGC)."}
+  ];
+  const days = defs.map((x, i) => {
+    let level = lvl[i];
+    if (level === "live" && !x.isLive) level = "main";
+    if (x.isLive && level !== "live") level = "light";
+    const o = Object.assign({}, x, {level:level, cta:cta});
+    if (level === "light") { o.format = "Story"; o.script = null; o.caption = null; o.isVideo = false; o.boost = null; o.hookShown = false; }
+    return o;
+  });
+  const cMain = days.filter(x => x.level === "main").length;
+  const cLive = days.filter(x => x.level === "live").length;
+  const cLight = days.filter(x => x.level === "light").length;
+  const cVideo = days.filter(x => x.isVideo && x.level !== "light").length;
+  const counts = {total:cMain + cLive, video:cVideo, live:cLive, story:cLight, post:cMain - cVideo};
+
+  /* budget */
+  const be = {m:m, roas:100 / m, price:price};
+  if (price) {
+    be.gp = price * m / 100;
+    be.orders = B ? Math.ceil(B / be.gp) : 0;
+  }
+  let split = null, rows = [];
+  if (B > 0) {
+    split = B < 300000 ? {cold:.5, warm:.4, hot:0, test:.1}
+          : B < 1000000 ? {cold:.45, warm:.25, hot:.2, test:.1}
+          : B < 3000000 ? {cold:.40, warm:.25, hot:.2, test:.15}
+          : {cold:.40, warm:.25, hot:.15, test:.2};
+    const W = B / 4;
+    const aud = {
+      cold:(d.audience || "Зорилтот хүмүүсийн нас, хүйс, байршил, сонирхол") + ". Өгөгдөл хангалттай болсны дараа look-alike нэм.",
+      warm:"Сүүлийн 30–60 хоногт бичлэг үзсэн (50%-иас дээш), Page эсвэл Instagram-тай харьцсан хүмүүс.",
+      hot:"Messenger-ээр асуусан, сайтад зочилсон, сагсанд хийсэн хүмүүс (14 хоног).",
+      test:"Ижил үзэгчид, 2 өөр creative. Нэг удаад зөвхөн нэг хувьсагчийг өөрчил."
+    };
+    rows.push({post:"Даваа: сургах бичлэг", goal:"Бичлэг үзэлт эсвэл хүрэлт", aud:aud.cold, amt:W * split.cold, temp:"Cold"});
+    if (split.hot === 0) {
+      rows.push({post:"Лхагва: нотолгооны пост", goal:chanObj, aud:aud.warm + " " + aud.hot, amt:W * split.warm / 2, temp:"Warm"});
+      rows.push({post:"Баасан: санал бүхий пост", goal:chanObj, aud:aud.warm + " " + aud.hot, amt:W * split.warm / 2, temp:"Warm, Hot"});
+    } else {
+      rows.push({post:"Лхагва: нотолгооны пост", goal:chanObj, aud:aud.warm, amt:W * split.warm, temp:"Warm"});
+      rows.push({post:"Баасан: санал бүхий пост", goal:chanObj, aud:aud.hot, amt:W * split.hot, temp:"Hot"});
+    }
+    rows.push({post:"Туршилт: хамгийн сайн organic постын 2 хувилбар", goal:"Мессеж эсвэл үзэлт", aud:aud.test, amt:W * split.test, temp:"Test"});
+    rows.forEach(r => { r.days = 3; });
+  }
+
+  /* weeks */
+  const nContent = cap_ === "solo" ? "4–5" : cap_ === "small" ? "8–10" : "12–14";
+  const w1 = [
+    "Page, профайлын нүүр зураг, «Бидний тухай», холбоо барих, үнэ, төлбөр, хүргэлтийн мэдээллийг нэг дор бэлд.",
+    "Мессежийн автомат мэдэгдэл ба 5–6 түгээмэл асуултын бэлэн хариулт бэлд (үнэ, хүргэлт, төлбөр, буцаалт, «" + cap(cat.objection) + "»).",
+    "Нэг өдөр зураг, бичлэгээ бөөнөөр авч, эхний " + nContent + " контентыг бэлд.",
+    "Захиалга хаанаас ирснийг бүртгэх энгийн хүснэгт үүсгэ." + (channels.includes("web") ? " Вэбсайтад Pixel болон худалдан авалтын хэмжилтээ тохируул." : "")
+  ];
+  const w2 = ["Дээрх 7 хоногийн бүтцээр контентоо тогтмол нийтэлж эхэл."];
+  if (B > 0) w2.push("Туршилтын төсвөөр (" + fmt(B / 4 * split.test) + " орчим) 3 creative ба 2 аудиторийг туршина. Нэг удаад нэг хувьсагчийг л өөрчил.");
+  else w2.push("Хөрш, сонирхолтой 3 Facebook групп эсвэл community-д борлуулалт биш, ашигтай контентоор оролцож эхэл.");
+  w2.push("Нэг hook-той бичлэгийг 2 өөр эхлэлээр хийж аль нь илүү үзэлт авахыг харьцуул.");
+  w2.push("Долоо хоногийн эцэст мессеж, хадгалалт, share авсан 2 постоо тэмдэглэ.");
+  const w3 = [
+    "Эхний худалдан авагчдаас сэтгэгдэл, зураг хүс (зөвшөөрөлтэйгөөр). 5-аас олон нотолгоо цуглуул.",
+    cat.kind === "b2b" ? "1–2 хамтрагч байгууллагын жишээ, дээжийг кейс болгон бэлд." : "1–2 микро инфлюенсертэй туршилтын хамтын ажиллагаа хий. Хөнгөлтийн код эсвэл тусгай линк өгч, ивээн тэтгэсэн гэж тэмдэглүүл.",
+    B > 0 ? "Retargeting эхлүүл: бичлэг үзсэн, мессеж бичсэн хүмүүст нотолгооны пост, саналаа үзүүл." : "Мессеж бичээд алга болсон хүнд 24–48 цагийн дотор нэг удаа зөөлөн сануул.",
+    "Мессеж бичээд захиалаагүй хүмүүсийн шалтгааныг бич: үнэ, итгэл, хүргэлт. Дараагийн саналдаа тусга."
+  ];
+  const kw4 = {
+    repeat:"Багц эсвэл давтан авалтын санал гарга, өмнөх худалдан авагчдад мессежээр сануул.",
+    consider:"Баталгаа, туршиж үзэх нөхцөл, харьцуулалтын контентыг үндсэн саналдаа тодорхой оруул.",
+    trend:"Хамгийн сайн үзэлттэй бичлэгийн хэв маягаар дараагийн 4 бичлэгээ хий.",
+    gift:"Дараагийн баярын бэлгийн багц, хүргэлтийн эцсийн хугацааг төлөвлө.",
+    b2b:"Үнийн санал, дээжийн урсгалыг стандарт болгож, 5–10 боломжит харилцагч руу шууд хандаарай."
+  }[cat.kind];
+  const w4 = [
+    "Үр дүнг дүгнэ: CPA ба ROAS-ыг ашиг тэнцэх түвшинтэй (" + (price ? "CPA " + fmt(be.gp) + "-аас доош" : "ROAS " + be.roas.toFixed(1) + "-аас дээш") + ") харьцуул.",
+    B > 0 ? "Ажилласан 1–2 hook, creative-ийн төсвийг 3 хоног тутам ойролцоогоор 20%-иар нэмэгдүүл (жишиг). Хангалттай өгөгдөл цуглаагүй зүйлийг хэдхэн цагт зогсоохгүй." : "Хамгийн сайн ажилласан постоо жижиг boost-оор (3 хоног, өдөрт 5,000–10,000₮ жишээтэй) туршиж эхэл.",
+    kw4,
+    "Дараа сарын төлөвлөгөө гарга. Улирлын боломж: " + season.label + "."
+  ];
+  const weeks = [
+    {n:1, name:"Суурь", sub:"Бэлтгэл, хэмжилт", items:w1},
+    {n:2, name:"Туршилт", sub:"Hook, creative, аудитори", items:w2},
+    {n:3, name:"Нотолгоо", sub:"Итгэл, retargeting", items:w3},
+    {n:4, name:"Өсгөх", sub:"Дүгнэлт, дараагийн сар", items:w4}
+  ];
+
+  /* metrics */
+  const mt = [];
+  if (goals.includes("sales")) {
+    mt.push(["Захиалгын тоо ба эх сурвалж", "7 хоног тутам бүртгэ", "Аль суваг, пост захиалга авчирснаа мэдэхгүй бол өсгөх боломжгүй."]);
+    mt.push(["CPA (нэг захиалгын зарын өртөг)", price ? "Ашиг тэнцэх дээд хязгаар " + fmt(be.gp) : "Нэгж үнэ оруулаад тооцоол", "Энэ хязгаараас хэтэрвэл зар алдагдалтай ажиллаж байна."]);
+    mt.push(["ROAS", "Ашиг тэнцэх түвшин " + be.roas.toFixed(2), "Түүнээс бага бол зар ашиггүй; ихсэх тусам ашиг үлдэнэ."]);
+  }
+  if (goals.includes("awareness")) {
+    mt.push(["Хүрэлт ба 3 секундын үзэлт", "Долоо хоног бүр өмнөхөөсөө өсөж байгаа эсэх", "Hook, эхний секундийн чанарыг харуулна."]);
+    mt.push(["Дагагч болон Page-ийн өсөлт", "Долоо хоног тутам хэмж", "Шинэ хүмүүс сонирхож байгааг харуулна."]);
+    mt.push(["Профайл руу зочилсон тоо", "Долоо хоног тутам хэмж", "Хараад сонирхсон хүний тоог харуулна."]);
+  }
+  if (goals.includes("repeat")) {
+    mt.push(["Давтан худалдан авалтын хувь", "Сар бүр өөрийн суурь тоогоо тогтоо", "Урт хугацааны ашгийн хамгийн шууд үзүүлэлт."]);
+    mt.push(["Дундаж захиалгын дүн (AOV)", "Багц оруулснаар сар бүр өсөж байгаа эсэх", "Ижил зардлаар илүү орлого өгөх боломжийг харуулна."]);
+  }
+  if (goals.includes("launch")) {
+    mt.push(["Урьдчилсан захиалга, жагсаалтад бүртгүүлсэн тоо", "Танилцуулгаас өмнө болон эхний 2 долоо хоногт хэмж", "Шинэ бүтээгдэхүүнд эрэлт байгааг харуулна."]);
+    mt.push(["Эхний 20 захиалга хүртэлх хугацаа", "Өөрийн эхний хугацааг тэмдэглэ", "Эхний сэтгэгдлүүдийг хэр хурдан цуглуулахыг заана."]);
+  }
+  mt.push(["Мессежийн хариу өгөх хугацаа", "Ажлын цагаар 5 минутаас бага (өөрийн стандарт болго)", "Олон хүн асуугаад захиалаагүй бол эхлээд энийг шалга."]);
+  mt.push(["Хөрвүүлэлт: мессеж → захиалга", "2 долоо хоногт суурь тоогоо тогтоо, дараа нь өсгө", "Үнэ, итгэл, хариултын хурд, захиалгын алхмыг үнэлнэ."]);
+  if (B > 0) mt.push(["Зарын CTR", "Эхлэлийн жишиг 1%-аас дээш (салбар бүрт өөр)", "Бага бол hook болон зургийг солиод дахин турш."]);
+
+  /* cautions */
+  const cautions = [
+    "Хуурамч сэтгэгдэл, худал «хязгаарлагдмал» хугацаа, тоо, хуурамч хямдрал бүү ашигла. Богино хугацаанд ажилласан ч итгэлийг сүйтгэдэг.",
+    "Инфлюенсертэй хамтарсан контентыг ивээн тэтгэсэн гэж тодорхой тэмдэглэ. Хэрэглэгчийн зураг, сэтгэгдлийг зөвшөөрөлтэйгөөр ашигла.",
+    "Байнга хямдралаар борлуулбал бүтээгдэхүүний үнэ цэнэ буурдаг. Хямдрал тодорхой шалтгаантай (улирал, баяр, шинэ бүтээгдэхүүн) байг.",
+    "Энэ төлөвлөгөө нь таамаглалд суурилсан. 2 долоо хоногийн бодит өгөгдлөөр засварла, «энэ зар борлуулалтыг заавал өсгөнө» гэж амла хэрэггүй."
+  ];
+  if (cat.reg) cautions.unshift("Энэ ангилалд эрүүл мэнд, гоо сайхны үр дүнгийн батлагдаагүй амлалт бүү бич (эмчилнэ, гарна гэх мэт). Монгол Улсын сурталчилгааны хууль болон платформын бодлогыг шалгаарай.");
+
+  return {
+    id:"MZ-" + String(now.getFullYear()).slice(2) + pad(now.getMonth() + 1) + "-" + Math.floor(1000 + Math.random() * 9000),
+    dateStr:now.getFullYear() + "." + pad(now.getMonth() + 1) + "." + pad(now.getDate()),
+    d:d, cat:cat, kind:kind, stage:stage, chan:chan, chanLabel:chanLabel, goalLabel:goalLabel, season:season,
+    focus:focus, reasonNotes:reasonNotes, assumptions:assumptions, pfRows:pfRows, pfNotes:pfNotes, primary:primary,
+    days:days, counts:counts, hooks:hooks, B:B, split:split, rows:rows, be:be, weeks:weeks, metrics:mt, cautions:cautions
+  };
+}
+
+/* ---------- rendering ---------- */
+const copyStore = [];
+function copyBtn(text, label) {
+  copyStore.push(text);
+  return '<button type="button" class="copybtn" data-copy="' + (copyStore.length - 1) + '">' + (label || "Хуулах") + '</button>';
+}
+
+/* ---------- payment (QPay) ----------
+ * Энэ нь статик frontend тул QPay-ийн merchant нууц мэдээллийг (username/password/
+ * invoice_code) энд хадгалж, шууд дуудаж болохгүй. Доорх apiBase нь QPay-той холбогдсон
+ * өөрийн сервер (жишээ нь энэ project-ийн "server/" дотор байгаа жишээ backend)-ийн
+ * хаяг байх ёстой. Тохируулаагүй бол "QPAY холбогдоогүй байна" гэсэн мэдэгдэл гарна,
+ * худал "төлбөр амжилттай" гэж хэзээ ч харуулахгүй. */
+const QPAY_CONFIG = {
+  apiBase: "",            /* жишээ: "https://your-qpay-backend.example.com" */
+  amount: 6900,
+  description: "Маркетингийн сарын төлөвлөгөө — дэлгэрэнгүй хувилбар",
+  pollMs: 3000,
+  pollTimeoutMs: 5 * 60 * 1000
+};
+function isUnlocked() { try { return localStorage.getItem("mz_unlocked") === "1"; } catch (e) { return false; } }
+function setUnlocked() { try { localStorage.setItem("mz_unlocked", "1"); } catch (e) {} }
+
+function paywallHtml() {
+  return '<div class="paywall" id="paywall"><div class="paywall-card">' +
+    '<div class="paywall-lock">🔒</div>' +
+    '<h4>Дэлгэрэнгүй төлөвлөгөөг нээх</h4>' +
+    '<p>7 хоногийн контент, Hook сан, Boost/зарын төсөв, 30 хоногийн төлөвлөгөө, хэмжилт, анхаарах зүйлсийг үзэхийн тулд нэг удаа төлнө үү.</p>' +
+    '<div class="paywall-price">' + fmt(QPAY_CONFIG.amount) + '</div>' +
+    '<button class="btn" type="button" id="qpayBtn">QPay-ээр төлөх</button>' +
+    '<div id="qpayPanel" class="qpay-panel" hidden></div>' +
+    '<p class="muted small">Төлбөр баталгаажсаны дараа контент энэ хуудасны дотор шууд нээгдэнэ.</p>' +
+    '</div></div>';
+}
+
+async function qpayApi(path, body) {
+  if (!QPAY_CONFIG.apiBase) { const e = new Error("QPAY холбогдоогүй байна"); e.code = "NO_BACKEND"; throw e; }
+  const res = await fetch(QPAY_CONFIG.apiBase.replace(/\/$/, "") + path, {
+    method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(body || {})
+  });
+  if (!res.ok) throw new Error("Сервер алдаа: " + res.status);
+  return res.json();
+}
+
+let qpayPollT = null, qpayPollDeadline = 0;
+function stopQpayPoll() { clearTimeout(qpayPollT); qpayPollT = null; }
+
+function unlockDoc() {
+  setUnlocked();
+  stopQpayPoll();
+  const wrap = $("#premiumWrap"); if (wrap) wrap.classList.remove("locked");
+  const pw = $("#paywall"); if (pw) pw.remove();
+  toast("Төлбөр баталгаажлаа! Дэлгэрэнгүй төлөвлөгөө нээгдлээ.");
+}
+
+async function pollQpayInvoice(invoiceId) {
+  if (Date.now() > qpayPollDeadline) {
+    const panel = $("#qpayPanel");
+    if (panel) panel.innerHTML += '<p class="err">Төлбөрийн хугацаа дууслаа. Дахин QR үүсгэж үзнэ үү.</p>';
+    return;
+  }
+  try {
+    const r = await qpayApi("/api/qpay/check", {invoice_id: invoiceId});
+    if (r && (r.paid || r.status === "PAID")) { unlockDoc(); return; }
+  } catch (e) { /* сервертэй түр тасарсан ч polling үргэлжилнэ */ }
+  qpayPollT = setTimeout(() => pollQpayInvoice(invoiceId), QPAY_CONFIG.pollMs);
+}
+
+async function startQPayPayment(p) {
+  const btn = $("#qpayBtn"), panel = $("#qpayPanel");
+  if (!btn || !panel) return;
+  btn.disabled = true; btn.textContent = "Нэхэмжлэл үүсгэж байна…";
+  panel.hidden = false; panel.innerHTML = '<p class="muted">QPay-тай холбогдож байна…</p>';
+
+  /* QPay backend тохируулаагүй үед (жишээ нь энэ стандалон файлыг шалгаж үзэж байгаа
+   * тестийн орчинд) бодит төлбөр авах боломжгүй тул туршилтын горимоор шууд нээнэ.
+   * Энэ нь зөвхөн QPAY_CONFIG.apiBase хоосон үед л ажиллана; backend тохируулсны
+   * дараа доорх жинхэнэ QPay урсгал ажиллаж, туршилтын горим автоматаар унтардаг. */
+  if (!QPAY_CONFIG.apiBase) {
+    panel.innerHTML = '<p class="muted"><b>Туршилтын горим:</b> QPay backend тохируулаагүй тул бодит төлбөр авах боломжгүй. 1.5 секундын дараа "төлбөр амжилттай" гэж үзээд агуулгыг нээнэ.</p>';
+    btn.textContent = "Түр хүлээнэ үү…";
+    await new Promise(r => setTimeout(r, 1500));
+    unlockDoc();
+    return;
+  }
+
+  try {
+    const inv = await qpayApi("/api/qpay/invoice", {
+      amount: QPAY_CONFIG.amount, description: QPAY_CONFIG.description, planId: p.id
+    });
+    const qrSrc = inv.qr_image ? (String(inv.qr_image).startsWith("data:") ? inv.qr_image : "data:image/png;base64," + inv.qr_image) : "";
+    panel.innerHTML =
+      (qrSrc ? '<img class="qpay-qr" src="' + qrSrc + '" alt="QPay QR код">' : "") +
+      '<p class="muted">Банкны апп-аараа QR кодыг уншуулж ' + fmt(QPAY_CONFIG.amount) + ' төлнө үү.</p>' +
+      (Array.isArray(inv.urls) && inv.urls.length ? '<div class="qpay-apps">' + inv.urls.map(u => '<a class="btn ghost small" href="' + esc(u.link || u.url || "#") + '" target="_blank" rel="noopener">' + esc(u.name || u.description || "Апп нээх") + '</a>').join("") + '</div>' : "") +
+      '<p class="muted small" id="qpayStatus">Төлбөр хүлээж байна…</p>';
+    btn.textContent = "QR үүссэн — хүлээж байна";
+    qpayPollDeadline = Date.now() + QPAY_CONFIG.pollTimeoutMs;
+    pollQpayInvoice(inv.invoice_id || inv.id);
+  } catch (e) {
+    btn.disabled = false; btn.textContent = "QPay-ээр төлөх";
+    if (e.code === "NO_BACKEND") {
+      panel.innerHTML = '<p class="err">QPAY холбогдоогүй байна. Энэ сайтыг QPay-той ажиллуулахын тулд QPay backend-ээ (server/ хавтас) deploy хийж, app.js доторх QPAY_CONFIG.apiBase-д хаягийг тохируулна уу.</p>';
+    } else {
+      panel.innerHTML = '<p class="err">Алдаа гарлаа: ' + esc(e.message) + '. Дахин оролдоно уу.</p>';
+    }
+  }
+}
+
+function wirePaywall(p) {
+  const btn = $("#qpayBtn");
+  if (btn) btn.addEventListener("click", () => startQPayPayment(p));
+}
+
+function renderDoc(p) {
+  copyStore.length = 0;
+  const d = p.d, c = p.counts;
+  let h = "";
+
+  h += '<header class="dochead"><div class="docref">Баримт № ' + p.id + ' &nbsp;|&nbsp; Бэлтгэсэн огноо ' + p.dateStr + '</div>' +
+    '<h2>Сошиал маркетингийн сарын төлөвлөгөө</h2><p class="docsub">' + esc(d.product) + '</p>' +
+    '<dl class="meta">' +
+    '<div><dt>Ангилал</dt><dd>' + esc(p.cat.label) + '</dd></div>' +
+    '<div><dt>Гол зорилго</dt><dd>' + esc(p.goalLabel) + '</dd></div>' +
+    '<div><dt>Одоогийн байдал</dt><dd>' + esc(p.stage.label) + '</dd></div>' +
+    '<div><dt>Сарын зарын төсөв</dt><dd>' + (p.B ? fmt(p.B) : "Төсөвгүй") + '</dd></div>' +
+    '<div><dt>Захиалгын суваг</dt><dd>' + esc(p.chanLabel) + '</dd></div></dl>' +
+    '<div class="docactions"><button class="btn" type="button" id="dlBtn">Татах (.md)</button>' +
+    '<button class="btn ghost" type="button" id="copyAll">Бүгдийг хуулах</button>' +
+    '<button class="btn ghost" type="button" id="editBtn">Мэдээллээ засах</button></div></header>';
+
+  /* 1 */
+  h += '<section class="dsec"><h3 id="s1"><span class="sn">1</span>Оношилгоо ба гол чиглэл</h3>';
+  h += '<div class="callout"><b>Энэ сарын улирлын боломж (' + p.season.month + '-р сар):</b> ' + esc(p.season.label) + '. ' + esc(p.season.tip) + '</div>';
+  h += '<p><b>Магадлалтай гол гацаа: ' + esc(p.stage.gap) + '.</b> ' + esc(p.stage.txt) + '</p>';
+  if (p.reasonNotes.length) {
+    h += '<h4>Та өөрөө тэмдэглэсэн саад бэрхшээл</h4><ul class="focus">' + p.reasonNotes.map(r => '<li><b>' + esc(r.t) + '</b><span>' + esc(r.d) + '</span></li>').join("") + '</ul>';
+  }
+  h += '<h4>Хамгийн түрүүнд хийх зүйлс</h4><ul class="focus">' + p.focus.map(f => '<li><b>' + esc(f.t) + '</b><span>' + esc(f.d) + '</span></li>').join("") + '</ul>';
+  h += '<h4>Төлөвлөгөөний таамаглал</h4><ul>' + p.assumptions.map(a => '<li>' + esc(a) + '</li>').join("") + '</ul></section>';
+
+  /* 2 */
+  h += '<section class="dsec"><h3 id="s2"><span class="sn">2</span>Платформ</h3>' +
+    '<div class="scroll"><table class="tbl"><thead><tr><th>Платформ</th><th>Үүрэг</th><th>Түвшин</th></tr></thead><tbody>' +
+    p.pfRows.map(r => '<tr><td><b>' + esc(r.name) + '</b></td><td>' + esc(r.role) + '</td><td><span class="tag' + (r.level === "Үндсэн" ? " k" : "") + '">' + r.level + '</span></td></tr>').join("") +
+    '</tbody></table></div>' +
+    (p.pfNotes.length ? '<ul>' + p.pfNotes.map(n => '<li>' + esc(n) + '</li>').join("") + '</ul>' : "") + '</section>';
+
+  const unlocked = isUnlocked();
+  h += '<div class="premium-area" id="premiumArea">';
+  if (!unlocked) h += paywallHtml();
+  h += '<div class="premium-wrap' + (unlocked ? "" : " locked") + '" id="premiumWrap">';
+
+  /* 3 */
+  h += '<section class="dsec"><h3 id="s3"><span class="sn">3</span>7 хоногийн контент</h3>';
+  h += '<div class="summary-line"><span><b>' + c.total + '</b> үндсэн контент</span><span><b>' + c.video + '</b> богино бичлэг</span><span><b>' + c.post + '</b> пост, carousel</span>' +
+    (c.live ? '<span><b>' + c.live + '</b> live</span>' : "") + '<span><b>' + c.story + '</b> өдөр зөвхөн Story</span></div>';
+  h += '<p class="muted">Контентыг 4 баганаар тэнцвэржүүлсэн: сургах, нотлох, дотно түүх, борлуулах. Нийтлэх цаг нь эхлэлийн таамаглал тул 2 долоо хоногийн дараа өөрийн Insights-ээр засаарай. Дөрвөлжин хаалтад [ ] байгаа хэсгийг өөрийн мэдээллээр солиод ашиглана.</p>';
+  h += '<div class="toolrow"><button class="linkbtn" type="button" id="toggleDays">Бүгдийг нээх</button></div>';
+  p.days.forEach((x, i) => {
+    const light = x.level === "light";
+    h += '<details class="day"' + (i === 0 ? " open" : "") + '><summary>' +
+      '<span class="dname">' + x.day + '<small>' + esc(x.pillar) + '</small></span>' +
+      '<span class="dsum"><span class="dfmt">' + esc(light ? "Story, хөнгөн өдөр" : x.format) + '</span>' +
+      (light ? '<span class="dhook">' + esc(x.light) + '</span>' : '<span class="dhook">«' + esc(x.hook) + '»</span>') +
+      '<span class="tags">' + (light ? "" : '<span class="tag">Цаг: ' + x.time + '</span>') +
+      (x.boost ? '<span class="tag k">Boost: ' + x.boost + '</span>' : "") + '</span></span></summary>';
+    if (!light) {
+      h += '<div class="dbody">';
+      if (x.script) h += '<h5>' + x.scriptLabel + '</h5><ol>' + x.script.map(s => '<li>' + esc(s) + '</li>').join("") + '</ol>';
+      h += '<h5>Бэлэн текст</h5><div class="cap">' + esc(x.caption) + '</div>' + copyBtn(x.caption, "Текстийг хуулах");
+      h += '</div>';
+    } else {
+      h += '<div class="dbody"><p class="muted">Story-г 2–3 хэсэг, 5 минутаас илүүгүй хугацаанд хийж болно. Энэ өдөр нийтлэлийн ачаалал тавихгүй.</p></div>';
+    }
+    h += '</details>';
+  });
+  h += '</section>';
+
+  /* 4 */
+  h += '<section class="dsec"><h3 id="s4"><span class="sn">4</span>Hook сан</h3>' +
+    '<p class="muted">Hook нь бичлэгийн эхний 1–3 секунд, постын эхний мөр. Эхнийх нь бүтээгдэхүүний нэрээр биш, үзэгчийн нөхцөл байдлаар эхэлсэн байх нь үзэлт хадгалахад тустай. Нэг бичлэгт 2 өөр hook туршиж, аль нь илүү үзэлт авсныг ав.</p>' +
+    '<ul class="hooks">' + p.hooks.map(k => '<li><span><span class="tag k">' + esc(k.type) + '</span></span><span><q>' + esc(k.text) + '</q><small>Хаана ашиглах: ' + esc(k.use) + '</small></span>' + copyBtn(k.text) + '</li>').join("") + '</ul></section>';
+
+  /* 5 */
+  h += '<section class="dsec"><h3 id="s5"><span class="sn">5</span>Boost ба зарын төсөв</h3>';
+  if (p.B > 0) {
+    const s = p.split;
+    const segs = [["Cold: шинэ үзэгчид", s.cold, "var(--c1)"], ["Warm: харьцсан хүмүүс", s.warm, "var(--c2)"], ["Hot: асууж, сонирхсон", s.hot, "var(--c3)"], ["Туршилт", s.test, "var(--c4)"]].filter(x => x[1] > 0);
+    h += '<p>Сарын ' + fmt(p.B) + ' төсвийг аудиторийн бэлэн байдлаар хуваав. Долоо хоногт ойролцоогоор ' + fmt(p.B / 4) + '.</p>';
+    h += '<div class="bar" role="img" aria-label="Төсвийн хуваарилалт">' + segs.map(x => '<i style="width:' + (x[1] * 100) + '%;background:' + x[2] + '"></i>').join("") + '</div>';
+    h += '<div class="legend">' + segs.map(x => '<span style="--c:' + x[2] + '">' + x[0] + ': ' + Math.round(x[1] * 100) + '% (' + fmt(p.B * x[1]) + ')</span>').join("") + '</div>';
+    h += '<h4>Долоо хоног тутмын boost хуваарь</h4><div class="scroll"><table class="tbl"><thead><tr><th>Пост</th><th>Зорилго</th><th>Үзэгчид</th><th>Хугацаа</th><th>Төсөв</th></tr></thead><tbody>' +
+      p.rows.map(r => '<tr><td><b>' + esc(r.post) + '</b><br><span class="tag">' + r.temp + '</span></td><td>' + esc(r.goal) + '</td><td>' + esc(r.aud) + '</td><td>' + r.days + ' хоног</td><td><b>' + fmt(r.amt) + '</b><br><span class="muted" style="font-size:.8rem">өдөрт ' + fmt(r.amt / r.days) + '</span></td></tr>').join("") +
+      '</tbody></table></div>';
+    h += '<h4>Boost хийхээс өмнөх шалгуур</h4><ul>' +
+      '<li>Постыг organic-аар нийтэлж, 24–48 цагийн дотор мессеж, хадгалалт, сэтгэгдлийн хариу авсныг сонго.</li>' +
+      '<li>Мессежийн бэлэн хариулт, үнэ, хүргэлт, төлбөрийн мэдээлэл бэлэн байх ёстой. Хариу удаан бол зарын мөнгө дэмий үрэгдэнэ.</li>' +
+      '<li>Ашиг тэнцэх түвшнээ (доорх тооцоо) урьдчилан мэд.</li>' +
+      '<li>Төсвийн ихэнхийг ажиллаж байгаа зүйлд, 10–20%-ийг шинэ туршилтад зарц. Хангалттай өгөгдөл (хэдэн өдөр) цуглуулахаас өмнө дүгнэхгүй.</li></ul>';
+  } else {
+    h += '<div class="callout"><b>Зарын төсөвгүй үед</b> төлбөргүй хүрэлт, итгэлийг эхэлж бий болго.</div>' +
+      '<ul><li>Сонирхолтой 3–5 Facebook групп, community-д ашигтай контентоор оролцож, борлуулалтын пост биш тусламж, зөвлөгөө хуваалц.</li>' +
+      '<li>Эхний худалдан авагчдаас сэтгэгдэл, зураг хүсч, UGC цуглуул.</li>' +
+      '<li>Жижиг инфлюенсертэй бартер (бүтээгдэхүүн өгч, бодит хэрэглээгээр нь харуулах) хамтын ажиллагаа туршиж үз.</li>' +
+      '<li>Organic пост 24–48 цагт өөрийн дунджаас илүү мессеж, хадгалалт авбал 3 хоногийн жижиг boost (жишээ нь өдөрт 5,000–10,000₮) туршиж эхэл.</li></ul>';
+  }
+  h += '<h4>Ашиг тэнцэх тооцоо</h4><dl class="calc">' +
+    '<div><dt>Ашгийн хувь</dt><dd>' + p.be.m + '%</dd><small>Зарын өмнөх ашиг</small></div>' +
+    '<div><dt>Ашиг тэнцэх ROAS</dt><dd>' + p.be.roas.toFixed(2) + '</dd><small>1 ÷ ашгийн хувь. Энэнээс дээш бол ашиг үлдэнэ.</small></div>' +
+    (p.be.gp ? '<div><dt>Нэг захиалгын ашиг</dt><dd>' + fmt(p.be.gp) + '</dd><small>Нэгж үнэ ' + fmt(p.be.price) + ' × ' + p.be.m + '%. CPA үүнээс доош байх ёстой.</small></div>' : '<div><dt>Нэг захиалгын ашиг</dt><dd>—</dd><small>Нэгж үнэ оруулбал тооцно.</small></div>') +
+    (p.be.gp && p.B ? '<div><dt>Зарыг нөхөх захиалга</dt><dd>' + p.be.orders + '</dd><small>Сарын ' + fmt(p.B) + '-ийг нөхөхөд зарын сувгаас хэрэгтэй захиалга.</small></div>' : "") +
+    '</dl></section>';
+
+  /* 6 */
+  h += '<section class="dsec"><h3 id="s6"><span class="sn">6</span>30 хоногийн төлөвлөгөө</h3>' +
+    p.weeks.map(w => '<div class="week"><h4>' + w.n + '-р долоо хоног: ' + w.name + '<small>' + w.sub + '</small></h4><ul>' + w.items.map(i => '<li>' + esc(i) + '</li>').join("") + '</ul></div>').join("") + '</section>';
+
+  /* 7 */
+  h += '<section class="dsec"><h3 id="s7"><span class="sn">7</span>Хэмжилт</h3>' +
+    '<p class="muted">Бүх тоог хянах шаардлагагүй. Зорилгод шууд хамаатай цөөн үзүүлэлтийг долоо хоног бүрийн Даваа гарагт 30 минут хараад шийдвэр гарга.</p>' +
+    '<div class="scroll"><table class="tbl"><thead><tr><th>Үзүүлэлт</th><th>Зорилт, хэмжих арга</th><th>Юуг харуулах вэ</th></tr></thead><tbody>' +
+    p.metrics.map(r => '<tr><td><b>' + esc(r[0]) + '</b></td><td>' + esc(r[1]) + '</td><td>' + esc(r[2]) + '</td></tr>').join("") + '</tbody></table></div></section>';
+
+  /* 8 */
+  h += '<section class="dsec"><h3 id="s8"><span class="sn">8</span>Анхаарах зүйл</h3><div class="callout warn"><ul style="margin:0">' +
+    p.cautions.map(c => '<li>' + esc(c) + '</li>').join("") + '</ul></div></section>';
+
+  h += '</div></div>';
+
+  $("#docBody").innerHTML = h;
+  if (!unlocked) wirePaywall(p);
+}
+
+/* ---------- markdown export ---------- */
+function toMD(p) {
+  const d = p.d, L = [];
+  L.push("# Сошиал маркетингийн сарын төлөвлөгөө: " + d.product);
+  L.push("Баримт № " + p.id + ", " + p.dateStr, "");
+  L.push("- Ангилал: " + p.cat.label, "- Зорилго: " + p.goalLabel, "- Одоогийн байдал: " + p.stage.label,
+    "- Сарын зарын төсөв: " + (p.B ? fmt(p.B) : "Төсөвгүй"), "- Захиалгын суваг: " + p.chanLabel, "");
+  L.push("## 1. Оношилгоо ба гол чиглэл");
+  L.push("Улирлын боломж (" + p.season.month + "-р сар): " + p.season.label + ". " + p.season.tip, "");
+  L.push("Магадлалтай гол гацаа: " + p.stage.gap + ". " + p.stage.txt, "");
+  if (p.reasonNotes.length) { L.push("", "Тэмдэглэсэн саад бэрхшээл:"); p.reasonNotes.forEach(r => L.push("- **" + r.t + "**: " + r.d)); }
+  L.push("");
+  p.focus.forEach((f, i) => L.push((i + 1) + ". **" + f.t + "**: " + f.d));
+  L.push("", "Таамаглал:"); p.assumptions.forEach(a => L.push("- " + a));
+  L.push("", "## 2. Платформ"); p.pfRows.forEach(r => L.push("- " + r.name + " (" + r.level + "): " + r.role));
+  p.pfNotes.forEach(n => L.push("- Тэмдэглэл: " + n));
+  if (!isUnlocked()) {
+    L.push("", "---", "", "**3–8-р хэсэг түгжээтэй.** 7 хоногийн контент, Hook сан, Boost/зарын төсөв, " +
+      "30 хоногийн төлөвлөгөө, хэмжилт, анхаарах зүйлсийг үзэхийн тулд " + fmt(QPAY_CONFIG.amount) + " төлж QPay-ээр нээнэ үү.");
+    return L.join("\n");
+  }
+  L.push("", "## 3. 7 хоногийн контент");
+  L.push("Нийт " + p.counts.total + " үндсэн контент (" + p.counts.video + " богино бичлэг, " + p.counts.post + " пост" + (p.counts.live ? ", " + p.counts.live + " live" : "") + "), " + p.counts.story + " өдөр Story.", "");
+  p.days.forEach(x => {
+    if (x.level === "light") { L.push("### " + x.day + " (" + x.pillar + "): Story", x.light, ""); return; }
+    L.push("### " + x.day + " (" + x.pillar + "): " + x.format, "Цаг: " + x.time + (x.boost ? ". Boost: " + x.boost : ""), "Hook: " + x.hook, "");
+    if (x.script) { L.push(x.scriptLabel + ":"); x.script.forEach((s, i) => L.push((i + 1) + ". " + s)); L.push(""); }
+    L.push("Бэлэн текст:", "```", x.caption, "```", "");
+  });
+  L.push("## 4. Hook сан"); p.hooks.forEach(k => L.push("- [" + k.type + "] " + k.text + " (Хаана: " + k.use + ")"));
+  L.push("", "## 5. Boost ба зарын төсөв");
+  if (p.B > 0) {
+    L.push("Сарын төсөв " + fmt(p.B) + ", долоо хоногт ойролцоогоор " + fmt(p.B / 4) + ".");
+    p.rows.forEach(r => L.push("- " + r.post + " [" + r.temp + "]: " + fmt(r.amt) + ", " + r.days + " хоног. Зорилго: " + r.goal + ". Үзэгчид: " + r.aud));
+  } else L.push("Зарын төсөвгүй үед: Facebook групп, UGC, бартер хамтын ажиллагаа, органик постын дараа жижиг boost.");
+  L.push("", "Ашиг тэнцэх ROAS: " + p.be.roas.toFixed(2) + " (ашгийн хувь " + p.be.m + "%)");
+  if (p.be.gp) L.push("Нэг захиалгын ашиг: " + fmt(p.be.gp) + (p.B ? ". Зарыг нөхөх захиалга: " + p.be.orders : ""));
+  L.push("", "## 6. 30 хоногийн төлөвлөгөө");
+  p.weeks.forEach(w => { L.push("### " + w.n + "-р долоо хоног: " + w.name); w.items.forEach(i => L.push("- " + i)); L.push(""); });
+  L.push("## 7. Хэмжилт"); p.metrics.forEach(r => L.push("- " + r[0] + ": " + r[1] + ". " + r[2]));
+  L.push("", "## 8. Анхаарах зүйл"); p.cautions.forEach(c => L.push("- " + c));
+  return L.join("\n");
+}
+
+/* ---------- form (question by question) ---------- */
+$("#catTiles").innerHTML = Object.keys(CATS).map(k => '<label class="opt"><input type="radio" name="cat" value="' + k + '"><span><b>' + esc(CATS[k].label) + '</b></span></label>').join("");
+$("#uspTiles").innerHTML = Object.keys(USP_OPTS).map(k => '<label class="opt"><input type="radio" name="usp" value="' + k + '"><span><b>' + esc(USP_OPTS[k].label) + '</b><small>' + esc(USP_OPTS[k].small) + '</small></span></label>').join("") +
+  '<label class="opt"><input type="radio" name="usp" value="other"><span><b>Бусад</b><small>Өөрөө бичих</small></span></label>';
+const rv = n => { const e = $('input[name="' + n + '"]:checked'); return e ? e.value : ""; };
+const setR = (n, v) => { const e = $('input[name="' + n + '"][value="' + v + '"]'); if (e) e.checked = true; };
+$$('input[name="usp"]').forEach(x => x.addEventListener("change", () => {
+  $("#uspOtherWrap").hidden = rv("usp") !== "other";
+  updateNextLabel();
+}));
+
+function readForm() {
+  const uspSel = rv("usp");
+  const uspOther = $("#uspOther").value.trim();
+  const usp = uspSel === "other" ? uspOther : (uspSel ? USP_OPTS[uspSel].text : "");
+  return {
+    product:$("#product").value.trim(), cat:rv("cat"), price:parseFloat($("#price").value) || 0, margin:parseFloat($("#margin").value) || 40,
+    audience:$("#audience").value.trim(), stage:rv("stage") || "some",
+    reasons:$$("input[name=reasons]:checked").map(x => x.value),
+    pf:$$("input[name=pf]:checked").map(x => x.value),
+    channels:$$("input[name=channel]:checked").map(x => x.value),
+    goals:$$("input[name=goal]:checked").map(x => x.value),
+    budget:parseFloat($("#budget").value) || 0,
+    capacity:rv("capacity") || "small", usp:usp
+  };
+}
+
+let current = null, step = 0, autoT = null;
+const slides = $$(".q");
+const LAST = slides.length - 1;     /* summary slide */
+const TOTALQ = LAST;                /* number of questions */
+function showErr(t) { const e = $("#err"); e.textContent = t; e.hidden = !t; }
+function validateSlide(i) {
+  const key = slides[i] && slides[i].dataset.key;
+  const d = readForm();
+  if (key === "product" && !d.product) return "Бүтээгдэхүүний нэрээ бичнэ үү.";
+  if (key === "cat" && !d.cat) return "Ангилалаа сонгоно уу.";
+  return null;
+}
+function updateNextLabel() {
+  const el = slides[step]; if (!el) return;
+  const opt = el.dataset.opt;
+  let empty = false;
+  if (opt === "price") empty = !$("#price").value;
+  if (opt === "audience") empty = !$("#audience").value.trim();
+  if (opt === "reasons") empty = $$("input[name=reasons]:checked").length === 0;
+  if (opt === "usp") { const u = rv("usp"); empty = !u || (u === "other" && !$("#uspOther").value.trim()); }
+  $("#nextBtn").textContent = empty ? "Алгасах" : "Дараах";
+}
+function fillSummary() {
+  const d = readForm();
+  const rows = [
+    ["Бүтээгдэхүүн", d.product || "—", 0],
+    ["Ангилал", d.cat ? CATS[d.cat].label : "—", 1],
+    ["Үнэ ба ашиг", (d.price ? fmt(d.price) : "үнэ оруулаагүй") + ", ашиг " + d.margin + "%", 2],
+    ["Хэнд зарах", d.audience || "оруулаагүй", 3],
+    ["Одоогийн байдал", STAGES[d.stage].label, 4],
+    ["Саад бэрхшээл", d.reasons.length ? d.reasons.map(k => REASONS[k].label).join(", ") : "сонгоогүй", 5],
+    ["Платформ", d.pf.length ? d.pf.map(x => PF[x].n).join(", ") : "сонгоогүй", 6],
+    ["Захиалгын суваг", d.channels.length ? d.channels.map(c => CHANNELS[c].label).join(", ") : "—", 7],
+    ["Гол зорилго", d.goals.length ? d.goals.map(g => GOALS[g]).join(", ") : "—", 8],
+    ["Сарын зарын төсөв", d.budget ? fmt(d.budget) : "Төсөвгүй", 9],
+    ["Контент хийх нөөц", CAPS[d.capacity], 10],
+    ["Давуу тал", d.usp || "оруулаагүй", 11]
+  ];
+  $("#sum").innerHTML = rows.map(r => '<div><dt>' + r[0] + '</dt><dd>' + esc(r[1]) + '</dd><button type="button" class="linkbtn" data-go="' + r[2] + '">Засах</button></div>').join("");
+}
+function go(n) {
+  clearTimeout(autoT);
+  n = Math.max(0, Math.min(LAST, n)); step = n;
+  slides.forEach((el, i) => { el.classList.toggle("on", i === n); el.classList.toggle("past", i < n); });
+  $("#progFill").style.width = Math.round(Math.min(n, TOTALQ) / TOTALQ * 100) + "%";
+  $("#qcount").textContent = n === LAST ? "Шалгах" : "Асуулт " + (n + 1) + " / " + TOTALQ;
+  $("#prevBtn").hidden = n === 0; $("#nextBtn").hidden = n === LAST; $("#submitBtn").hidden = n !== LAST;
+  showErr(""); updateNextLabel();
+  if (n === LAST) fillSummary();
+  const f = slides[n].querySelector("input[type=text],input[type=number]");
+  if (f && !(window.matchMedia && matchMedia("(pointer:coarse)").matches)) setTimeout(() => { if (step === n) f.focus({preventScroll:true}); }, 380);
+}
+function next() {
+  const e = validateSlide(step);
+  if (e) { showErr(e); return; }
+  go(step + 1);
+}
+$("#nextBtn").addEventListener("click", next);
+$("#prevBtn").addEventListener("click", () => go(step - 1));
+
+/* auto-advance after a single choice */
+$("#stage").addEventListener("change", ev => {
+  const el = ev.target.closest(".q");
+  if (el && el.dataset.auto && ev.target.type === "radio") { showErr(""); clearTimeout(autoT); const i = step; autoT = setTimeout(() => { if (step === i) go(i + 1); }, 300); }
+  updateNextLabel();
+});
+$("#stage").addEventListener("input", updateNextLabel);
+$("#budgetQuick").addEventListener("click", ev => {
+  const b = ev.target.closest("button"); if (!b) return;
+  $("#budget").value = b.dataset.v;
+  clearTimeout(autoT); const i = step; autoT = setTimeout(() => { if (step === i) go(i + 1); }, 300);
+});
+$("#sum").addEventListener("click", ev => { const b = ev.target.closest("[data-go]"); if (b) go(+b.dataset.go); });
+
+$("#intake").addEventListener("submit", ev => {
+  ev.preventDefault();
+  if (step < LAST) { next(); return; }
+  for (let i = 0; i < 2; i++) { const e = validateSlide(i); if (e) { go(i); showErr(e); return; } }
+  showErr("");
+  current = build(readForm());
+  renderDoc(current);
+  $("#doc").hidden = false;
+  $("#navdoc").hidden = false;
+  $("#doc").scrollIntoView({behavior:"smooth", block:"start"});
+});
+
+$("#fillDemo").addEventListener("click", () => {
+  const set = (id, v) => { $("#" + id).value = v; };
+  set("product", "Байгалийн найрлагатай гар саван"); setR("cat", "beauty"); set("price", 18000); set("margin", 55);
+  set("audience", "22–40 настай, Улаанбаатар дахь эмэгтэйчүүд"); setR("stage", "some");
+  $$("input[name=reasons]").forEach(x => { x.checked = (x.value === "trust" || x.value === "reach"); });
+  $$("input[name=pf]").forEach(x => { x.checked = (x.value === "facebook" || x.value === "instagram"); });
+  $$("input[name=channel]").forEach(x => { x.checked = (x.value === "messenger"); });
+  $$("input[name=goal]").forEach(x => { x.checked = (x.value === "sales"); });
+  set("budget", 500000); setR("capacity", "small");
+  setR("usp", "quality");
+  go(LAST);
+});
+go(0);
+
+/* ---------- doc actions ---------- */
+function toast(t) {
+  const el = $("#toast"); el.textContent = t; el.hidden = false;
+  clearTimeout(toast._t); toast._t = setTimeout(() => { el.hidden = true; }, 1800);
+}
+function copyText(t) {
+  const fallback = () => {
+    const ta = document.createElement("textarea"); ta.value = t; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    let ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+    ta.remove(); toast(ok ? "Хуулагдлаа" : "Хуулах боломжгүй байна");
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(() => toast("Хуулагдлаа"), fallback);
+  else fallback();
+}
+
+document.addEventListener("click", async ev => {
+  const cb = ev.target.closest("[data-copy]");
+  if (cb) { copyText(copyStore[+cb.dataset.copy]); return; }
+  if (ev.target.id === "copyAll" && current) { copyText(toMD(current)); return; }
+  if (ev.target.id === "editBtn") { $("#top").scrollIntoView({behavior:"smooth"}); return; }
+  if (ev.target.id === "toggleDays") {
+    const all = $$("details.day"); const open = all.some(x => !x.open);
+    all.forEach(x => { x.open = open; });
+    ev.target.textContent = open ? "Бүгдийг хаах" : "Бүгдийг нээх"; return;
+  }
+  if (ev.target.id === "dlBtn" && current) {
+    let dl = null;
+    try { dl = window.claude ? await window.claude.use("downloads") : null; } catch (e) { dl = null; }
+    if (!dl) { copyText(toMD(current)); toast("Татах боломжгүй тул хууллаа"); return; }
+    try {
+      await dl.save({filename:"marketing-plan-" + current.id + ".md", data:toMD(current)});
+      toast("Хадгаллаа");
+    } catch (e) { if (e && e.code !== "declined") toast("Татаж чадсангүй. «Бүгдийг хуулах» товчийг ашиглаарай."); }
+  }
+});
+
+/* ---------- theme ---------- */
+$("#themeBtn").addEventListener("click", () => {
+  const root = document.documentElement;
+  const cur = root.getAttribute("data-theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  root.setAttribute("data-theme", cur === "dark" ? "light" : "dark");
+});
+
+})();
+
+</script>
+</body>
+</html>

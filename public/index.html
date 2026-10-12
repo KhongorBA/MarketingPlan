@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Маркетинг Зөвлөх — сошиал борлуулалтын төлөвлөлт</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>try { if (localStorage.getItem("mz_theme") === "light") document.documentElement.setAttribute("data-theme", "light"); } catch (e) {}</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Маркетинг Зөвлөх">
+      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="30" rx="9" fill="#FFFFFF"/><rect x="6" y="16" width="5" height="8" rx="1.5" fill="#127A35"/><rect x="13" y="11" width="5" height="13" rx="1.5" fill="#127A35"/><rect x="20" y="6" width="5" height="18" rx="1.5" fill="#127A35"/></svg>
+      <span><b>Маркетинг Зөвлөх</b><small>Сошиал борлуулалтын төлөвлөлтийн төв</small></span>
+    </a>
+    <nav class="nav" aria-label="Үндсэн цэс">
+      <a href="#top">Төлөвлөгөө гаргах</a>
+      <a href="#doc" id="navdoc" hidden>Баримт</a>
+      <button class="themebtn" id="themeBtn" type="button" aria-label="Харагдах байдлыг солих"><span aria-hidden="true">◐</span><span class="tb-text"> Харагдах байдал</span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Монгол бизнест зориулсан маркетингийн зөвлөх</p>
+      <h1>Сошиал медиагаар борлуулалтаа өсгөх сарын төлөвлөгөө</h1>
+      <p class="lead">16 энгийн асуултад хариулаарай. Бид таны бизнест тохирсон контент, hook, зарын төсөв, 30 хоногийн алхмыг бэлтгэж өгнө.</p>
+      <ul class="ticks">
+        <li>7 хоногийн бэлэн пост, бичлэгийн текст: хуулаад шууд нийтэлнэ</li>
+        <li>Facebook, Instagram, TikTok-ийн зарын төсвийн хуваарилалт</li>
+        <li>Ашиг тэнцэх ROAS, CPA тооцоо: зар ашигтай эсэхийг мэднэ</li>
+      </ul>
+      <div class="hero-stats">
+        <div><b>16</b><span>асуулт</span></div>
+        <div><b>~3 мин</b><span>бөглөх хугацаа</span></div>
+        <div><b>8</b><span>хэсэгтэй төлөвлөгөө</span></div>
+      </div>
+    </div>
+    <form class="intake" id="intake" novalidate>
+      <div class="ihead"><b>Бизнесийн мэдээлэл</b><span id="qcount"></span></div>
+      <div class="prog" aria-hidden="true"><i id="progFill"></i></div>
+      <div class="stage" id="stage">
+
+        <section class="q on" data-key="product" data-label="Бүтээгдэхүүн">
+          <p class="qn"></p>
+          <h3>Та юу зарах вэ?</h3>
+          <p class="qsub">Бүтээгдэхүүн эсвэл брэндийнхээ нэрийг бичнэ үү.</p>
+          <div class="ans">
+            <input class="big" type="text" id="product" name="product" maxlength="120" placeholder="Жишээ: Байгалийн найрлагатай гар саван" autocomplete="off">
+            <button type="button" class="linkbtn" id="fillDemo" style="margin-top:14px">Жишээ мэдээллээр туршиж үзэх</button>
+          </div>
+        </section>
+
+        <section class="q" data-key="cat" data-label="Ангилал" data-auto="1">
+          <p class="qn"></p>
+          <h3>Ямар төрлийн бараа вэ?</h3>
+          <p class="qsub">Хамгийн ойр ангиллыг сонгоно уу.</p>
+          <div class="ans">
+            <div class="opts compact" role="radiogroup" aria-label="Ангилал">
+              <label class="opt"><input type="radio" name="cat" value="beauty"><span><b>Гоо сайхан, арьс арчилгаа</b></span></label>
+              <label class="opt"><input type="radio" name="cat" value="fashion"><span><b>Хувцас, гутал, загвар</b></span></label>
+              <label class="opt"><input type="radio" name="cat" value="food"><span><b>Хоол хүнс, ундаа, амттан</b></span></label>
+              <label class="opt"><input type="radio" name="cat" value="home"><span><b>Гэр ахуй, тавилга, интерьер</b></span></label>
+              <label class="opt"><input type="radio" name="cat" value="tech"><span><b>Цахилгаан бараа, гаджет</b></span></label>
+              <label class="opt"><input type="radio" name="cat" value="kids"><span><b>Хүүхэд, эх нялхас</b></span></label>
+              <label class="opt"><input type="radio" name="cat" value="health"><span><b>Эрүүл мэнд, спорт, нэмэлт тэжээл</b></span></label>
+              <label class="opt"><input type="radio" name="cat" value="gift"><span><b>Бэлэг, гар урлал, өвөрмөц бараа</b></span></label>
+              <label class="opt"><input type="radio" name="cat" value="b2b"><span><b>Бөөний, байгууллагад зарах</b></span></label>
+              <label class="opt"><input type="radio" name="cat" value="other"><span><b>Бусад бараа</b></span></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="q" data-key="price" data-label="Нэгж үнэ" data-opt="price">
+          <p class="qn"></p>
+          <h3>Нэг ширхэгийг хэдээр зардаг вэ?</h3>
+          <p class="qsub">Худалдан авагчийн төлөх үнэ. Зарын зардал хэр байж болохыг үүгээр тооцно. Мэдэхгүй бол алгасаарай.</p>
+          <div class="ans">
+            <div class="affix"><input class="big" type="number" id="price" name="price" min="0" step="1000" inputmode="numeric" placeholder="45000" aria-label="Нэгж үнэ"><i>₮</i></div>
+          </div>
+        </section>
+
+        <section class="q" data-key="cost" data-label="Өртөг" data-opt="cost">
+          <p class="qn"></p>
+          <h3>Нэг ширхэг нь танд хэдээр өртөг болдог вэ?</h3>
+          <p class="qsub">Бараа, савлагаа, хүргэлтийн зардлыг нийлүүлээд. Зарын зардлыг оруулахгүй. Мэдэхгүй бол алгасвал ашгийг 40% гэж тооцно.</p>
+          <div class="ans">
+            <div class="affix"><input class="big" type="number" id="cost" name="cost" min="0" step="1000" inputmode="numeric" placeholder="25000" aria-label="Нэгжийн өртөг"><i>₮</i></div>
+            <p class="hint muted" id="marginHint" style="margin:10px 0 0"></p>
+          </div>
+        </section>
+
+        <section class="q" data-key="ages" data-label="Нас" data-opt="ages">
+          <p class="qn"></p>
+          <h3>Таны худалдан авагчид хэдэн настай вэ?</h3>
+          <p class="qsub">Хамгийн их авдаг насны бүлгүүдийг сонго. Хэд ч сонгож болно.</p>
+          <div class="ans">
+            <div class="chips lg" role="group" aria-label="Нас">
+              <label class="chip"><input type="checkbox" name="ages" value="13-17"><span>13–17</span></label>
+              <label class="chip"><input type="checkbox" name="ages" value="18-24"><span>18–24</span></label>
+              <label class="chip"><input type="checkbox" name="ages" value="25-34"><span>25–34</span></label>
+              <label class="chip"><input type="checkbox" name="ages" value="35-44"><span>35–44</span></label>
+              <label class="chip"><input type="checkbox" name="ages" value="45-54"><span>45–54</span></label>
+              <label class="chip"><input type="checkbox" name="ages" value="55+"><span>55+</span></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="q" data-key="gender" data-label="Хүйс" data-opt="gender" data-auto="1">
+          <p class="qn"></p>
+          <h3>Голдуу хэн авдаг вэ?</h3>
+          <p class="qsub">Сонгосны дараа дараагийн асуулт руу шилжинэ.</p>
+          <div class="ans">
+            <div class="opts" role="radiogroup" aria-label="Хүйс">
+              <label class="opt"><input type="radio" name="gender" value="female"><span><b>Ихэвчлэн эмэгтэйчүүд</b></span></label>
+              <label class="opt"><input type="radio" name="gender" value="male"><span><b>Ихэвчлэн эрэгтэйчүүд</b></span></label>
+              <label class="opt"><input type="radio" name="gender" value="all"><span><b>Хоёулаа адилхан</b></span></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="q" data-key="locations" data-label="Байршил" data-opt="locations">
+          <p class="qn"></p>
+          <h3>Хаана амьдардаг хүмүүст зарах вэ?</h3>
+          <p class="qsub">Хүргэлт хүрдэг газруудаа сонго. Хэд ч сонгож болно.</p>
+          <div class="ans">
+            <div class="chips lg" role="group" aria-label="Байршил">
+              <label class="chip"><input type="checkbox" name="locations" value="ub"><span>Улаанбаатар</span></label>
+              <label class="chip"><input type="checkbox" name="locations" value="darkhan"><span>Дархан</span></label>
+              <label class="chip"><input type="checkbox" name="locations" value="erdenet"><span>Эрдэнэт</span></label>
+              <label class="chip"><input type="checkbox" name="locations" value="aimag"><span>Бусад аймаг</span></label>
+              <label class="chip"><input type="checkbox" name="locations" value="nationwide"><span>Монгол даяар</span></label>
+              <label class="chip"><input type="checkbox" name="locations" value="abroad"><span>Гадаадад байгаа монголчууд</span></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="q" data-key="interests" data-label="Сонирхол" data-opt="interests">
+          <p class="qn"></p>
+          <h3>Тэд юу сонирхдог хүмүүс вэ?</h3>
+          <p class="qsub">Ажил, хобби, амьдралын хэв маяг. Доорхоос дарж нэмэх эсвэл өөрөө бичиж болно.</p>
+          <div class="ans">
+            <input class="big" type="text" id="interests" name="interests" maxlength="200" placeholder="Жишээ: эрүүл амьдрал, гэрийн ээж, оффисын ажилтан" autocomplete="off">
+            <div class="quick" id="interestQuick" style="margin-top:10px">
+              <button type="button">Эрүүл амьдрал</button>
+              <button type="button">Гоо сайхан</button>
+              <button type="button">Ээж, хүүхэд</button>
+              <button type="button">Оюутан</button>
+              <button type="button">Оффисын ажилтан</button>
+              <button type="button">Спорт, фитнес</button>
+              <button type="button">Аялал</button>
+              <button type="button">Технологи</button>
+              <button type="button">Гэр ахуй</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="q" data-key="stage" data-label="Одоогийн байдал" data-auto="1">
+          <p class="qn"></p>
+          <h3>Одоо борлуулалт ямар байна вэ?</h3>
+          <p class="qsub">Танд хамгийн ойр байгааг сонгоно уу.</p>
+          <div class="ans">
+            <div class="opts" role="radiogroup" aria-label="Одоогийн байдал">
+              <label class="opt"><input type="radio" name="stage" value="new"><span><b>Шинээр эхэлж байна</b><small>Борлуулалт бараг байхгүй</small></span></label>
+              <label class="opt"><input type="radio" name="stage" value="some" checked><span><b>Зарагддаг ч тогтмол биш</b><small>Зарим 7 хоногт сайн, заримд муу</small></span></label>
+              <label class="opt"><input type="radio" name="stage" value="steady"><span><b>Тогтвортой зарагддаг</b><small>Одоо өсгөмөөр байна</small></span></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="q" data-key="reasons" data-label="Саад бэрхшээл" data-opt="reasons">
+          <p class="qn"></p>
+          <h3>Юу тань саад болж байна гэж боддог вэ?</h3>
+          <p class="qsub">Таньд тохирохыг сонго. Хэд ч сонгож болно, мэдэхгүй бол алгасаарай.</p>
+          <div class="ans">
+            <div class="opts" role="group" aria-label="Саад бэрхшээл">
+              <label class="opt"><input type="checkbox" name="reasons" value="price"><span><b>Үнэ өндөр гэж боддог</b><small>Худалдан авагч үнээс буцдаг</small></span></label>
+              <label class="opt"><input type="checkbox" name="reasons" value="trust"><span><b>Биднийг мэддэггүй, итгэдэггүй</b><small>Шинэ, нотолгоо дутагдалтай</small></span></label>
+              <label class="opt"><input type="checkbox" name="reasons" value="reach"><span><b>Хүрэлт бага</b><small>Пост цөөн хүнд харагддаг</small></span></label>
+              <label class="opt"><input type="checkbox" name="reasons" value="slow"><span><b>Хариу удаан</b><small>Мессеж бичсэн хүн алга болдог</small></span></label>
+              <label class="opt"><input type="checkbox" name="reasons" value="inconsistent"><span><b>Контент тогтмол бус</b><small>Байнга тасалддаг, санаа дуусдаг</small></span></label>
+              <label class="opt"><input type="checkbox" name="reasons" value="differentiation"><span><b>Ялгарал тодорхойгүй</b><small>Өрсөлдөгчөөс юугаараа илүүг хэлж чаддаггүй</small></span></label>
+              <label class="opt"><input type="checkbox" name="reasons" value="cta"><span><b>Дараагийн алхам тодорхойгүй</b><small>Хэрхэн захиалахыг тодорхой хэлдэггүй</small></span></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="q" data-key="pf" data-label="Платформ">
+          <p class="qn"></p>
+          <h3>Аль сошиал сүлжээнд ажиллах вэ?</h3>
+          <p class="qsub">Хэд ч сонгож болно. Сонгож дуусаад «Дараах» дарна уу.</p>
+          <div class="ans">
+            <div class="chips lg" role="group" aria-label="Платформ">
+              <label class="chip"><input type="checkbox" name="pf" value="facebook" checked><span>Facebook</span></label>
+              <label class="chip"><input type="checkbox" name="pf" value="instagram"><span>Instagram</span></label>
+              <label class="chip"><input type="checkbox" name="pf" value="tiktok"><span>TikTok</span></label>
+              <label class="chip"><input type="checkbox" name="pf" value="youtube"><span>YouTube</span></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="q" data-key="channels" data-label="Захиалгын суваг">
+          <p class="qn"></p>
+          <h3>Хүмүүс танаас хаанаас захиалдаг вэ?</h3>
+          <p class="qsub">Хэд ч сонгож болно.</p>
+          <div class="ans">
+            <div class="opts" role="group" aria-label="Захиалгын суваг">
+              <label class="opt"><input type="checkbox" name="channels" value="messenger" checked><span><b>Messenger, DM</b><small>Мессежээр захиалга авна</small></span></label>
+              <label class="opt"><input type="checkbox" name="channels" value="web"><span><b>Вэбсайт</b><small>Өөрийн онлайн дэлгүүр</small></span></label>
+              <label class="opt"><input type="checkbox" name="channels" value="store"><span><b>Дэлгүүр, салбар</b><small>Биечлэн ирж авна</small></span></label>
+              <label class="opt"><input type="checkbox" name="channels" value="market"><span><b>Маркетплейс</b><small>Гуравдагч талын сайт</small></span></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="q" data-key="goals" data-label="Гол зорилго">
+          <p class="qn"></p>
+          <h3>Ирэх сард юунд хүрмээр байна вэ?</h3>
+          <p class="qsub">Хэд ч сонгож болно.</p>
+          <div class="ans">
+            <div class="opts" role="group" aria-label="Гол зорилго">
+              <label class="opt"><input type="checkbox" name="goals" value="sales" checked><span><b>Борлуулалт нэмэх</b><small>Захиалгын тоог өсгөнө</small></span></label>
+              <label class="opt"><input type="checkbox" name="goals" value="awareness"><span><b>Брэнд таниулах</b><small>Хүрэлт, дагагч өсгөнө</small></span></label>
+              <label class="opt"><input type="checkbox" name="goals" value="repeat"><span><b>Давтан худалдан авалт</b><small>Өмнөх худалдан авагчаа буцаана</small></span></label>
+              <label class="opt"><input type="checkbox" name="goals" value="launch"><span><b>Шинэ бүтээгдэхүүн</b><small>Урьдчилсан захиалга, эхний борлуулалт</small></span></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="q" data-key="budget" data-label="Сарын зарын төсөв">
+          <p class="qn"></p>
+          <h3>Сард зар сурталчилгаанд хэдийг зарцуулж чадах вэ?</h3>
+          <p class="qsub">Facebook, Instagram, TikTok-ийн boost, зарын нийт дүн.</p>
+          <div class="ans">
+            <div class="field"><div class="affix"><input class="big" type="number" id="budget" name="budget" min="0" step="10000" inputmode="numeric" value="500000" aria-label="Сарын зарын төсөв"><i>₮</i></div></div>
+            <div class="quick" id="budgetQuick">
+              <button type="button" data-v="0">Төсөвгүй</button>
+              <button type="button" data-v="200000">200,000</button>
+              <button type="button" data-v="500000">500,000</button>
+              <button type="button" data-v="1000000">1,000,000</button>
+              <button type="button" data-v="3000000">3,000,000</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="q" data-key="capacity" data-label="Контент хийх хүн" data-auto="1">
+          <p class="qn"></p>
+          <h3>Контентыг хэн хийх вэ?</h3>
+          <p class="qsub">7 хоногт хэдэн пост, бичлэг хийж чадахыг үүгээр тооцно.</p>
+          <div class="ans">
+            <div class="opts" role="radiogroup" aria-label="Контент хийх нөөц">
+              <label class="opt"><input type="radio" name="capacity" value="solo"><span><b>Би ганцаараа</b><small>Цаг бага</small></span></label>
+              <label class="opt"><input type="radio" name="capacity" value="small" checked><span><b>2–3 хүн</b><small>Жижиг баг</small></span></label>
+              <label class="opt"><input type="radio" name="capacity" value="team"><span><b>Баг эсвэл агентлаг</b><small>Тогтмол контент хийнэ</small></span></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="q" data-key="usp" data-label="Давуу тал" data-opt="usp">
+          <p class="qn"></p>
+          <h3>Хүмүүс яагаад өрсөлдөгчөөс биш танаас авах ёстой вэ?</h3>
+          <p class="qsub">Хамгийн хүчтэй давуу талаа сонго. Мэдэхгүй бол алгасаж болно.</p>
+          <div class="ans">
+            <div class="opts" role="radiogroup" aria-label="Давуу тал">
+              <label class="opt"><input type="radio" name="usp" value="quality"><span><b>Чанар, цэвэр найрлага</b><small>Бусдаас цэвэр, чанартай орц/материал ашигладаг</small></span></label>
+              <label class="opt"><input type="radio" name="usp" value="price"><span><b>Хямд, боломжийн үнэ</b><small>Ижил чанарыг хямд үнээр санал болгодог</small></span></label>
+              <label class="opt"><input type="radio" name="usp" value="speed"><span><b>Хурдан хүргэлт, үйлчилгээ</b><small>Захиалга, хүргэлт түргэн</small></span></label>
+              <label class="opt"><input type="radio" name="usp" value="warranty"><span><b>Баталгаа, буцаалт</b><small>Эвдрэл, таалагдахгүй үед буцаалттай</small></span></label>
+              <label class="opt"><input type="radio" name="usp" value="experience"><span><b>Туршлага, мэргэшил</b><small>Тухайн салбарт арвин туршлагатай</small></span></label>
+              <label class="opt"><input type="radio" name="usp" value="custom_fit"><span><b>Хувь хүнд тохируулсан</b><small>Хэрэглэгч бүрт тусгайлан тохируулдаг</small></span></label>
+              <label class="opt"><input type="radio" name="usp" value="unique"><span><b>Өвөрмөц арга, технологи</b><small>Бусдад байхгүй арга, жор, технологи</small></span></label>
+              <label class="opt"><input type="radio" name="usp" value="service"><span><b>Дотно, хурдан үйлчилгээ</b><small>Харилцах байдал, хариу өгөх хурд давуу тал</small></span></label>
+              <label class="opt"><input type="radio" name="usp" value="other"><span><b>Бусад</b><small>Өөрөө бичих</small></span></label>
+            </div>
+            <div class="field" id="uspOtherWrap" hidden style="margin-top:12px">
+              <label for="uspOther">Өөрөө бичих</label>
+              <input class="big" type="text" id="uspOther" name="uspOther" maxlength="200" placeholder="Жишээ: Зөвхөн байгалийн гаралтай орц, химийн нэмэлтгүй" autocomplete="off">
+            </div>
+          </div>
+        </section>
+
+        <section class="q" data-key="summary">
+          <p class="qn">Бүх асуулт дууслаа</p>
+          <h3>Бэлэн боллоо. Мэдээллээ шалгана уу.</h3>
+          <p class="qsub">Засах зүйл байвал «Засах» товчийг дарна. Зөв бол төлөвлөгөөгөө гаргаарай.</p>
+          <dl class="sum" id="sum"></dl>
+        </section>
+      </div>
+      <div class="ierr"><p class="errmsg" id="err" role="alert" hidden></p></div>
+      <div class="ifoot">
+        <button type="button" class="btn ghost" id="prevBtn" hidden>Өмнөх</button>
+        <span class="sp"></span>
+        <button type="button" class="btn" id="nextBtn">Дараах</button>
+        <button type="submit" class="btn gold" id="submitBtn" hidden>Төлөвлөгөө гаргах</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="loading" id="loading" hidden role="status"><span class="spin" aria-hidden="true"></span><span><b>Бид таны бизнест тохирсон төлөвлөгөөг бэлтгэж байна</b><br><span class="muted" id="loadMsg">Таны хариултыг шинжилж байна…</span></span></div>
+  <section class="docwrap" id="doc" hidden aria-live="polite">
+    <div class="doc-grid">
+      <nav class="toc" aria-label="Баримтын агуулга">
+        <b>Агуулга</b>
+        <ol>
+          <li><a href="#s1">1. Оношилгоо</a></li>
+          <li><a href="#s2">2. Платформ</a></li>
+          <li><a href="#s3">3. 7 хоногийн контент</a></li>
+          <li><a href="#s4">4. Hook сан</a></li>
+          <li><a href="#s5">5. Boost ба төсөв</a></li>
+          <li><a href="#s6">6. 30 хоногийн төлөвлөгөө</a></li>
+          <li><a href="#s7">7. Хэмжилт</a></li>
+          <li><a href="#s8">8. Анхаарах зүйл</a></li>
+        </ol>
+      </nav>
+      <article class="doc" id="docBody"></article>
+    </div>
+  </section>
+</div>
+
+<section class="land" id="how">
+  <div class="wrap">
+    <p class="eyebrow">Хэрхэн ажилладаг вэ</p>
+    <h2>Гурван алхам</h2>
+    <ol class="steps">
+      <li><b>Асуултад хариулна</b><span>Бүтээгдэхүүн, үнэ, худалдан авагч, төсвөө сонгоно. Мэдэхгүй асуултаа алгасаж болно.</span></li>
+      <li><b>Бид төлөвлөгөөг бэлтгэнэ</b><span>Таны хариултад үндэслэн контент, бэлэн текст, зарын төсвийг таны бизнест тааруулж гаргана. Ердөө 10–30 секунд.</span></li>
+      <li><b>Хуулаад нийтэлнэ</b><span>Пост бүрийн текстийг хуулж, календарьт нэмж, PDF-ээр хадгална. Дургүй бол шинэ хувилбар гаргана.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="land alt" id="inside">
+  <div class="wrap">
+    <p class="eyebrow">Төлөвлөгөөнд юу багтах вэ</p>
+    <h2>8 хэсэгтэй, хэрэгжүүлэхэд бэлэн</h2>
+    <div class="cards">
+      <div class="card"><span class="tag k">Үнэгүй</span><b>1. Оношилгоо</b><span>Борлуулалт яагаад гацаж байгаа, юуг түрүүлж хийх вэ.</span></div>
+      <div class="card"><span class="tag k">Үнэгүй</span><b>2. Платформ</b><span>Аль сүлжээ үндсэн, аль нь туслах вэ.</span></div>
+      <div class="card"><span class="tag k">Даваа үнэгүй</span><b>3. 7 хоногийн контент</b><span>Өдөр бүрийн формат, цаг, бичлэгийн бүтэц, бэлэн текст.</span></div>
+      <div class="card"><span class="tag">Бүтэн</span><b>4. Hook сан</b><span>Бичлэгийн эхний 3 секундэд анхаарал татах 10+ өгүүлбэр.</span></div>
+      <div class="card"><span class="tag">Бүтэн</span><b>5. Boost ба төсөв</b><span>Cold, warm, hot үзэгчдэд хэдийг, хэзээ зарцуулах вэ.</span></div>
+      <div class="card"><span class="tag">Бүтэн</span><b>6. 30 хоногийн төлөвлөгөө</b><span>Долоо хоног бүрийн тодорхой ажлууд.</span></div>
+      <div class="card"><span class="tag">Бүтэн</span><b>7. Хэмжилт</b><span>Ямар тоог хянаж, хэзээ шийдвэр гаргах вэ.</span></div>
+      <div class="card"><span class="tag">Бүтэн</span><b>8. Анхаарах зүйл</b><span>Хууль, платформын бодлого, итгэлийг хадгалах дүрэм.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="land" id="price">
+  <div class="wrap">
+    <p class="eyebrow">Үнэ</p>
+    <h2>Эхлээд үнэгүй үзээд, таалагдвал нээ</h2>
+    <div class="plans">
+      <div class="plan">
+        <b>Үнэгүй</b><div class="amount">0₮</div>
+        <ul class="ticks"><li>Оношилгоо ба гол чиглэл</li><li>Платформын сонголт</li><li>Даваа гарагийн бэлэн контент</li></ul>
+      </div>
+      <div class="plan hl">
+        <b>Бүтэн төлөвлөгөө</b><div class="amount"><span data-price>6,900₮</span></div>
+        <ul class="ticks"><li>7 хоногийн бүх контент, script</li><li>Hook сан, зарын төсөв, ROAS тооцоо</li><li>30 хоногийн төлөвлөгөө, хэмжилт</li><li>PDF, календарь (.ics) татах</li></ul>
+        <p class="muted small">Нэг удаа QPay-ээр төлнө. Сарын төлбөргүй.</p>
+      </div>
+    </div>
+    <div class="center"><a class="btn gold" href="#top" id="ctaStart">Төлөвлөгөө гаргаж эхлэх</a></div>
+  </div>
+</section>
+
+<section class="land alt" id="faq">
+  <div class="wrap narrow">
+    <p class="eyebrow">Түгээмэл асуулт</p>
+    <h2>Асуулт хариулт</h2>
+    <details class="faq"><summary>Хариулт бүгдэд ижил гардаг уу?</summary><p>Үгүй. Бэлэн текст, hook, оношилгоог таны бүтээгдэхүүн, үзэгч, саад бэрхшээлд тааруулж бэлтгэнэ. «Шинэ хувилбар гаргах» дарахад өөр санаа, текст гарна. Төсөв, ROAS зэрэг тоог таны оруулсан үнэ, ашгаар нарийн тооцоолно.</p></details>
+    <details class="faq"><summary>Миний мэдээлэл аюулгүй юу?</summary><p>Зөвхөн бизнесийн ерөнхий мэдээлэл (бүтээгдэхүүн, үнэ, үзэгч) асууна. Нэр, утас, хаяг асуухгүй. Төлөвлөгөө тань зөвхөн танд өгсөн нууц холбоосоор нээгдэнэ.</p></details>
+    <details class="faq"><summary>Төлбөрөө яаж төлөх вэ?</summary><p>Банкны аппаараа QPay QR уншуулна. Төлбөр орсны дараа төлөвлөгөө тань энэ хуудсанд шууд нээгдэнэ. Хуудсаа хаасан ч дахин ороход сэргэнэ.</p></details>
+    <details class="faq"><summary>Борлуулалт заавал өснө гэсэн баталгаа бий юу?</summary><p>Үгүй. Төлөвлөгөө нь сошиал маркетингийн нотлогдсон зарчим ба таны мэдээлэлд суурилсан зөвлөмж. Эхний 2 долоо хоногийн бодит үр дүнгээрээ засаж ажиллахыг зөвлөнө.</p></details>
+    <details class="faq"><summary>Зарын төсөвгүй бол ашиглаж болох уу?</summary><p>Болно. Төсөвгүй үед Facebook групп, хэрэглэгчийн контент, бартер хамтын ажиллагаа зэрэг үнэгүй аргуудад төвлөрсөн төлөвлөгөө гарна.</p></details>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>Маркетинг Зөвлөх</span>
+    <span>Төлөвлөгөө нь таны оруулсан мэдээлэл ба сошиал маркетингийн ерөнхий зарчимд суурилсан зөвлөмж. Үр дүнг баталгаажуулахгүй.</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>

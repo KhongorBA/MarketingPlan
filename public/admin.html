@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Админ — Маркетинг Зөвлөх</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.adm{max-width:1000px;margin:32px auto;padding:0 16px}
+.adm h1{font-size:1.5rem;margin-bottom:16px}
+.adm h2{font-size:1.1rem;margin:28px 0 10px}
+.login{display:flex;gap:10px;max-width:520px}
+.kpis{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.kpi dt{font-size:.8rem;color:var(--ink-2)}
+.kpi dd{margin:2px 0 0;font:700 1.5rem "Montserrat",system-ui,sans-serif}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:6px 16px}
+.err{color:var(--danger)}
+code{font-size:.82rem;overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<main class="adm">
+  <h1>Маркетинг Зөвлөх — статистик</h1>
+  <form class="login" id="login">
+    <input type="password" id="token" placeholder="ADMIN_TOKEN" autocomplete="current-password" aria-label="Админ нууц үг">
+    <button class="btn" type="submit">Харах</button>
+  </form>
+  <p class="err" id="err" hidden></p>
+  <div id="out"></div>
+</main>
+<script>
+(function () {
+"use strict";
+const $ = s => document.querySelector(s);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt = n => Math.round(n).toLocaleString("en-US");
+const get = () => { try { return sessionStorage.getItem("mz_admin") || ""; } catch (e) { return ""; } };
+const put = v => { try { sessionStorage.setItem("mz_admin", v); } catch (e) {} };
+
+function table(head, rows) {
+  return '<div class="box scroll"><table class="tbl"><thead><tr>' + head.map(h => '<th>' + esc(h) + '</th>').join("") +
+    '</tr></thead><tbody>' + rows.map(r => '<tr>' + r.map(c => '<td>' + c + '</td>').join("") + '</tr>').join("") + '</tbody></table></div>';
+}
+
+async function load(token) {
+  const res = await fetch("/api/admin/stats", {headers: {Authorization: "Bearer " + token}});
+  if (res.status === 401) throw new Error("Нууц үг буруу, эсвэл .env-д ADMIN_TOKEN тохируулаагүй байна.");
+  if (!res.ok) throw new Error("Сервер алдаа: " + res.status);
+  const s = await res.json();
+  const kpi = (t, v) => '<div class="kpi"><dt>' + t + '</dt><dd>' + v + '</dd></div>';
+  let h = '<dl class="kpis">' +
+    kpi("Нийт төлөвлөгөө", fmt(s.plans)) + kpi("Сүүлийн 7 хоногт", fmt(s.last7)) +
+    kpi("Төлбөр төлсөн", fmt(s.paid)) + kpi("Орлого", fmt(s.revenue) + "₮") +
+    kpi("Төлбөрт шилжилт", (s.conversion * 100).toFixed(1) + "%") +
+    kpi("AI амжилттай / алдаа", s.ai.ok + " / " + s.ai.failed) + kpi("AI дундаж хугацаа", (s.ai.avgMs / 1000).toFixed(1) + " сек") + '</dl>';
+  if (s.testPaid) h += '<p class="muted">Туршилтын горимоор нээсэн ' + s.testPaid + ' төлөвлөгөөг орлогод тооцоогүй.</p>';
+  h += '<h2>Өдөр тутам (сүүлийн 14 хоног)</h2>' + table(["Огноо", "Төлөвлөгөө", "Төлбөр"], s.daily.slice().reverse().map(d => [d.date, d.plans, d.paid]));
+  h += '<h2>AI загварууд</h2>' + (Object.keys(s.ai.byModel).length
+    ? table(["Загвар", "Төлөвлөгөө"], Object.entries(s.ai.byModel).sort((a, b) => b[1] - a[1]).map(([k, v]) => ['<code>' + esc(k) + '</code>', v]))
+    : '<p class="muted">AI-аар гарсан төлөвлөгөө алга.</p>');
+  if (s.ai.lastErrors.length) h += '<h2>AI-ийн сүүлийн алдаанууд</h2>' + table(["Хэзээ", "Алдаа"], s.ai.lastErrors.map(e => [esc(e.at.slice(0, 16).replace("T", " ")), '<code>' + esc(e.error) + '</code>']));
+  h += '<h2>Ангиллаар</h2>' + table(["Ангилал", "Төлөвлөгөө"], Object.entries(s.byCategory).sort((a, b) => b[1] - a[1]).map(([k, v]) => [esc(k), v]));
+  $("#out").innerHTML = h;
+}
+
+async function run(token) {
+  $("#err").hidden = true;
+  try { await load(token); put(token); $("#login").hidden = true; }
+  catch (e) { $("#err").textContent = e.message; $("#err").hidden = false; }
+}
+$("#login").addEventListener("submit", ev => { ev.preventDefault(); run($("#token").value.trim()); });
+if (get()) run(get());
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "marketing-zuvluh",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Маркетинг Зөвлөх — сошиал борлуулалтын төлөвлөгөө гаргагч (frontend + backend)",
+  "main": "server/index.js",
+  "engines": { "node": ">=20.12" },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test test/"
+  }
+}
