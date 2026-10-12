@@ -37,7 +37,7 @@ function readForm() {
   return {
     product: $("#product").value.trim(), cat: rv("cat"),
     price: parseFloat($("#price").value) || 0, cost: parseFloat($("#cost").value) || 0,
-    ages: cv("ages"), gender: rv("gender"), locations: cv("locations"), interests: $("#interests").value.trim(),
+    ages: cv("ages"), gender: rv("gender"),
     stage: rv("stage") || "some", reasons: cv("reasons"), pf: cv("pf"), channels: cv("channels"), goals: cv("goals"),
     budget: parseFloat($("#budget").value) || 0, capacity: rv("capacity") || "small",
     usp: rv("usp"), uspOther: $("#uspOther").value.trim()
@@ -57,18 +57,14 @@ function validateSlide(i) {
   const key = slides[i] && slides[i].dataset.key, d = readForm();
   if (key === "product" && !d.product) return "Бүтээгдэхүүний нэрээ бичнэ үү.";
   if (key === "cat" && !d.cat) return "Ангилалаа сонгоно уу.";
-  if (key === "cost" && d.cost && d.price && d.cost >= d.price) return "Өртөг нь зарах үнээс бага байх ёстой. Шалгаад дахин оруулна уу.";
+  if (key === "price" && d.cost && d.price && d.cost >= d.price) return "Өртөг нь зарах үнээс бага байх ёстой. Шалгаад дахин оруулна уу.";
   return null;
 }
 function isEmpty(opt) {
   const d = readForm();
   switch (opt) {
-    case "price": return !d.price;
-    case "cost": return !d.cost;
-    case "ages": return !d.ages.length;
-    case "gender": return !d.gender;
-    case "locations": return !d.locations.length;
-    case "interests": return !d.interests;
+    case "price": return !d.price && !d.cost;
+    case "audience": return !d.ages.length && !d.gender;
     case "reasons": return !d.reasons.length;
     case "usp": return !d.usp || (d.usp === "other" && !d.uspOther);
   }
@@ -84,10 +80,9 @@ function fillSummary() {
   const d = readForm(), m = marginOf(d);
   const val = {
     product: d.product, cat: labels("cat").join(""),
-    price: d.price ? fmt(d.price) : "",
-    cost: d.cost ? fmt(d.cost) + (m != null ? " (ашиг " + m + "%)" : "") : "",
-    ages: labels("ages").join(", "), gender: labels("gender").join(""), locations: labels("locations").join(", "),
-    interests: d.interests, stage: labels("stage").join(""), reasons: labels("reasons").join(", "),
+    price: (s => s.charAt(0).toUpperCase() + s.slice(1))([d.price ? "үнэ " + fmt(d.price) : "", d.cost ? "өртөг " + fmt(d.cost) : "", m != null ? "ашиг " + m + "%" : ""].filter(Boolean).join(", ")),
+    audience: [labels("ages").join(", "), labels("gender").join("")].filter(Boolean).join(" · "),
+    stage: labels("stage").join(""), reasons: labels("reasons").join(", "),
     pf: labels("pf").join(", "), channels: labels("channels").join(", "), goals: labels("goals").join(", "),
     budget: d.budget ? fmt(d.budget) : "Төсөвгүй", capacity: labels("capacity").join(""),
     usp: d.usp === "other" ? d.uspOther : labels("usp").join("")
@@ -128,19 +123,12 @@ $("#budgetQuick").addEventListener("click", ev => {
   $("#budget").value = b.dataset.v;
   clearTimeout(autoT); const i = step; autoT = setTimeout(() => { if (step === i) go(i + 1); }, 300);
 });
-$("#interestQuick").addEventListener("click", ev => {
-  const b = ev.target.closest("button"); if (!b) return;
-  const inp = $("#interests"), t = b.textContent.toLowerCase();
-  const parts = inp.value.split(",").map(s => s.trim()).filter(Boolean);
-  if (!parts.map(s => s.toLowerCase()).includes(t)) parts.push(t);
-  inp.value = parts.join(", "); updateNextLabel();
-});
 $("#sum").addEventListener("click", ev => { const b = ev.target.closest("[data-go]"); if (b) go(+b.dataset.go); });
 
 $("#fillDemo").addEventListener("click", () => {
   const set = (id, v) => { $("#" + id).value = v; };
   set("product", "Байгалийн найрлагатай гар саван"); setR("cat", "beauty"); set("price", 18000); set("cost", 8000);
-  setC("ages", ["25-34", "35-44"]); setR("gender", "female"); setC("locations", ["ub"]); set("interests", "эрүүл амьдрал, гоо сайхан");
+  setC("ages", ["25-34", "35-44"]); setR("gender", "female");
   setR("stage", "some"); setC("reasons", ["trust", "reach"]); setC("pf", ["facebook", "instagram"]);
   setC("channels", ["messenger"]); setC("goals", ["sales"]); set("budget", 500000); setR("capacity", "small"); setR("usp", "quality");
   go(LAST);
@@ -173,10 +161,10 @@ function showLoading(on) {
 function fillForm(a) {
   if (!a) return;
   const set = (id, v) => { $("#" + id).value = v == null ? "" : v; };
-  set("product", a.product); set("price", a.price || ""); set("cost", a.cost || ""); set("interests", a.interests);
+  set("product", a.product); set("price", a.price || ""); set("cost", a.cost || "");
   set("budget", a.budget || 0); set("uspOther", a.uspOther);
   ["cat", "gender", "stage", "capacity", "usp"].forEach(n => { $('input[name="' + n + '"]').forEach(x => { x.checked = x.value === a[n]; }); });
-  ["ages", "locations", "reasons", "pf", "channels", "goals"].forEach(n => setC(n, a[n] || []));
+  ["ages", "reasons", "pf", "channels", "goals"].forEach(n => setC(n, a[n] || []));
   $("#uspOtherWrap").hidden = a.usp !== "other";
 }
 

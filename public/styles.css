@@ -333,3 +333,4 @@ details.day[open]>summary::after{transform:rotate(-135deg);margin-top:12px}
   .scroll{overflow:visible}table.tbl{min-width:0}
   a{text-decoration:none}
 }
+.lbl-sm{margin:0 0 10px;font-size:.88rem;font-weight:600}

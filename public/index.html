@@ -31,15 +31,15 @@
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <p class="eyebrow">Монгол бизнест зориулсан маркетингийн зөвлөх</p>
-      <h1>Сошиал медиагаар борлуулалтаа өсгөх сарын төлөвлөгөө</h1>
-      <p class="lead">16 энгийн асуултад хариулаарай. Бид таны бизнест тохирсон контент, hook, зарын төсөв, 30 хоногийн алхмыг бэлтгэж өгнө.</p>
+      <h1>Байгууллагынхаа борлуулалтаа өсгөх сарын төлөвлөгөө</h1>
+      <p class="lead">12 энгийн асуултад хариулаарай. Бид таны бизнест тохирсон контент, hook, зарын төсөв, 30 хоногийн алхмыг бэлтгэж өгнө.</p>
       <ul class="ticks">
         <li>7 хоногийн бэлэн пост, бичлэгийн текст: хуулаад шууд нийтэлнэ</li>
         <li>Facebook, Instagram, TikTok-ийн зарын төсвийн хуваарилалт</li>
         <li>Ашиг тэнцэх ROAS, CPA тооцоо: зар ашигтай эсэхийг мэднэ</li>
       </ul>
       <div class="hero-stats">
-        <div><b>16</b><span>асуулт</span></div>
+        <div><b>12</b><span>асуулт</span></div>
         <div><b>~3 мин</b><span>бөглөх хугацаа</span></div>
         <div><b>8</b><span>хэсэгтэй төлөвлөгөө</span></div>
       </div>
@@ -51,7 +51,7 @@
 
         <section class="q on" data-key="product" data-label="Бүтээгдэхүүн">
           <p class="qn"></p>
-          <h3>Та юу зарах вэ?</h3>
+          <h3>Таны худалдаалах бараа бүтээгдэхүүн</h3>
           <p class="qsub">Бүтээгдэхүүн эсвэл брэндийнхээ нэрийг бичнэ үү.</p>
           <div class="ans">
             <input class="big" type="text" id="product" name="product" maxlength="120" placeholder="Жишээ: Байгалийн найрлагатай гар саван" autocomplete="off">
@@ -79,30 +79,25 @@
           </div>
         </section>
 
-        <section class="q" data-key="price" data-label="Нэгж үнэ" data-opt="price">
+        <section class="q" data-key="price" data-label="Үнэ ба өртөг" data-opt="price">
           <p class="qn"></p>
-          <h3>Нэг ширхэгийг хэдээр зардаг вэ?</h3>
-          <p class="qsub">Худалдан авагчийн төлөх үнэ. Зарын зардал хэр байж болохыг үүгээр тооцно. Мэдэхгүй бол алгасаарай.</p>
+          <h3>Нэг ширхэгийн үнэ болон өртөг хэд вэ?</h3>
+          <p class="qsub">Зарын зардал хэр байж болохыг, нэг захиалгаас хэдэн төгрөг үлдэхийг үүгээр тооцно. Мэдэхгүй бол алгасаарай.</p>
           <div class="ans">
-            <div class="affix"><input class="big" type="number" id="price" name="price" min="0" step="1000" inputmode="numeric" placeholder="45000" aria-label="Нэгж үнэ"><i>₮</i></div>
+            <div class="grid2">
+              <div class="field"><label for="price">Зарах үнэ</label><div class="affix"><input class="big" type="number" id="price" name="price" min="0" step="1000" inputmode="numeric" placeholder="45000"><i>₮</i></div><span class="hint">Худалдан авагчийн төлөх үнэ</span></div>
+              <div class="field"><label for="cost">Өртөг</label><div class="affix"><input class="big" type="number" id="cost" name="cost" min="0" step="1000" inputmode="numeric" placeholder="25000"><i>₮</i></div><span class="hint">Бараа, савлагаа, хүргэлт. Зар оруулахгүй.</span></div>
+            </div>
+            <p class="hint muted" id="marginHint" style="margin:0"></p>
           </div>
         </section>
 
-        <section class="q" data-key="cost" data-label="Өртөг" data-opt="cost">
+        <section class="q" data-key="audience" data-label="Нас ба хүйс" data-opt="audience">
           <p class="qn"></p>
-          <h3>Нэг ширхэг нь танд хэдээр өртөг болдог вэ?</h3>
-          <p class="qsub">Бараа, савлагаа, хүргэлтийн зардлыг нийлүүлээд. Зарын зардлыг оруулахгүй. Мэдэхгүй бол алгасвал ашгийг 40% гэж тооцно.</p>
+          <h3>Таны худалдан авагчдын нас болон хүйс ямар вэ?</h3>
+          <p class="qsub">Хамгийн их авдаг насны бүлгүүдийг сонгоод, голдуу хэн авдгийг тэмдэглэ.</p>
           <div class="ans">
-            <div class="affix"><input class="big" type="number" id="cost" name="cost" min="0" step="1000" inputmode="numeric" placeholder="25000" aria-label="Нэгжийн өртөг"><i>₮</i></div>
-            <p class="hint muted" id="marginHint" style="margin:10px 0 0"></p>
-          </div>
-        </section>
-
-        <section class="q" data-key="ages" data-label="Нас" data-opt="ages">
-          <p class="qn"></p>
-          <h3>Таны худалдан авагчид хэдэн настай вэ?</h3>
-          <p class="qsub">Хамгийн их авдаг насны бүлгүүдийг сонго. Хэд ч сонгож болно.</p>
-          <div class="ans">
+            <p class="lbl-sm">Нас <span class="muted">(хэд ч сонгож болно)</span></p>
             <div class="chips lg" role="group" aria-label="Нас">
               <label class="chip"><input type="checkbox" name="ages" value="13-17"><span>13–17</span></label>
               <label class="chip"><input type="checkbox" name="ages" value="18-24"><span>18–24</span></label>
@@ -111,54 +106,11 @@
               <label class="chip"><input type="checkbox" name="ages" value="45-54"><span>45–54</span></label>
               <label class="chip"><input type="checkbox" name="ages" value="55+"><span>55+</span></label>
             </div>
-          </div>
-        </section>
-
-        <section class="q" data-key="gender" data-label="Хүйс" data-opt="gender" data-auto="1">
-          <p class="qn"></p>
-          <h3>Голдуу хэн авдаг вэ?</h3>
-          <p class="qsub">Сонгосны дараа дараагийн асуулт руу шилжинэ.</p>
-          <div class="ans">
-            <div class="opts" role="radiogroup" aria-label="Хүйс">
-              <label class="opt"><input type="radio" name="gender" value="female"><span><b>Ихэвчлэн эмэгтэйчүүд</b></span></label>
-              <label class="opt"><input type="radio" name="gender" value="male"><span><b>Ихэвчлэн эрэгтэйчүүд</b></span></label>
-              <label class="opt"><input type="radio" name="gender" value="all"><span><b>Хоёулаа адилхан</b></span></label>
-            </div>
-          </div>
-        </section>
-
-        <section class="q" data-key="locations" data-label="Байршил" data-opt="locations">
-          <p class="qn"></p>
-          <h3>Хаана амьдардаг хүмүүст зарах вэ?</h3>
-          <p class="qsub">Хүргэлт хүрдэг газруудаа сонго. Хэд ч сонгож болно.</p>
-          <div class="ans">
-            <div class="chips lg" role="group" aria-label="Байршил">
-              <label class="chip"><input type="checkbox" name="locations" value="ub"><span>Улаанбаатар</span></label>
-              <label class="chip"><input type="checkbox" name="locations" value="darkhan"><span>Дархан</span></label>
-              <label class="chip"><input type="checkbox" name="locations" value="erdenet"><span>Эрдэнэт</span></label>
-              <label class="chip"><input type="checkbox" name="locations" value="aimag"><span>Бусад аймаг</span></label>
-              <label class="chip"><input type="checkbox" name="locations" value="nationwide"><span>Монгол даяар</span></label>
-              <label class="chip"><input type="checkbox" name="locations" value="abroad"><span>Гадаадад байгаа монголчууд</span></label>
-            </div>
-          </div>
-        </section>
-
-        <section class="q" data-key="interests" data-label="Сонирхол" data-opt="interests">
-          <p class="qn"></p>
-          <h3>Тэд юу сонирхдог хүмүүс вэ?</h3>
-          <p class="qsub">Ажил, хобби, амьдралын хэв маяг. Доорхоос дарж нэмэх эсвэл өөрөө бичиж болно.</p>
-          <div class="ans">
-            <input class="big" type="text" id="interests" name="interests" maxlength="200" placeholder="Жишээ: эрүүл амьдрал, гэрийн ээж, оффисын ажилтан" autocomplete="off">
-            <div class="quick" id="interestQuick" style="margin-top:10px">
-              <button type="button">Эрүүл амьдрал</button>
-              <button type="button">Гоо сайхан</button>
-              <button type="button">Ээж, хүүхэд</button>
-              <button type="button">Оюутан</button>
-              <button type="button">Оффисын ажилтан</button>
-              <button type="button">Спорт, фитнес</button>
-              <button type="button">Аялал</button>
-              <button type="button">Технологи</button>
-              <button type="button">Гэр ахуй</button>
+            <p class="lbl-sm" style="margin-top:22px">Хүйс</p>
+            <div class="chips lg" role="radiogroup" aria-label="Хүйс">
+              <label class="chip"><input type="radio" name="gender" value="female"><span>Ихэвчлэн эмэгтэй</span></label>
+              <label class="chip"><input type="radio" name="gender" value="male"><span>Ихэвчлэн эрэгтэй</span></label>
+              <label class="chip"><input type="radio" name="gender" value="all"><span>Хоёулаа адилхан</span></label>
             </div>
           </div>
         </section>
@@ -178,7 +130,7 @@
 
         <section class="q" data-key="reasons" data-label="Саад бэрхшээл" data-opt="reasons">
           <p class="qn"></p>
-          <h3>Юу тань саад болж байна гэж боддог вэ?</h3>
+          <h3>Юу танд саад болж байна вэ?</h3>
           <p class="qsub">Таньд тохирохыг сонго. Хэд ч сонгож болно, мэдэхгүй бол алгасаарай.</p>
           <div class="ans">
             <div class="opts" role="group" aria-label="Саад бэрхшээл">
@@ -195,7 +147,7 @@
 
         <section class="q" data-key="pf" data-label="Платформ">
           <p class="qn"></p>
-          <h3>Аль сошиал сүлжээнд ажиллах вэ?</h3>
+          <h3>Аль сошиал сүлжээг ашигладаг вэ?</h3>
           <p class="qsub">Хэд ч сонгож болно. Сонгож дуусаад «Дараах» дарна уу.</p>
           <div class="ans">
             <div class="chips lg" role="group" aria-label="Платформ">
@@ -209,7 +161,7 @@
 
         <section class="q" data-key="channels" data-label="Захиалгын суваг">
           <p class="qn"></p>
-          <h3>Хүмүүс танаас хаанаас захиалдаг вэ?</h3>
+          <h3>Захиалгаа хаанаас авдаг вэ?</h3>
           <p class="qsub">Хэд ч сонгож болно.</p>
           <div class="ans">
             <div class="opts" role="group" aria-label="Захиалгын суваг">
@@ -223,7 +175,7 @@
 
         <section class="q" data-key="goals" data-label="Гол зорилго">
           <p class="qn"></p>
-          <h3>Ирэх сард юунд хүрмээр байна вэ?</h3>
+          <h3>Гол зорилго юу вэ?</h3>
           <p class="qsub">Хэд ч сонгож болно.</p>
           <div class="ans">
             <div class="opts" role="group" aria-label="Гол зорилго">
@@ -251,9 +203,9 @@
           </div>
         </section>
 
-        <section class="q" data-key="capacity" data-label="Контент хийх хүн" data-auto="1">
+        <section class="q" data-key="capacity" data-label="Контент хийх нөөц" data-auto="1">
           <p class="qn"></p>
-          <h3>Контентыг хэн хийх вэ?</h3>
+          <h3>Контент хийх нөөц</h3>
           <p class="qsub">7 хоногт хэдэн пост, бичлэг хийж чадахыг үүгээр тооцно.</p>
           <div class="ans">
             <div class="opts" role="radiogroup" aria-label="Контент хийх нөөц">
@@ -266,7 +218,7 @@
 
         <section class="q" data-key="usp" data-label="Давуу тал" data-opt="usp">
           <p class="qn"></p>
-          <h3>Хүмүүс яагаад өрсөлдөгчөөс биш танаас авах ёстой вэ?</h3>
+          <h3>Өрсөлдөгчөөсөө юугаараа ялгарах вэ?</h3>
           <p class="qsub">Хамгийн хүчтэй давуу талаа сонго. Мэдэхгүй бол алгасаж болно.</p>
           <div class="ans">
             <div class="opts" role="radiogroup" aria-label="Давуу тал">
